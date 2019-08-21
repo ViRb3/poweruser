@@ -16,6 +16,6 @@ setfacl -R -d -m u::rwx,g::rwx,o::rwx "$1"
 
 chown -R nobody:nogroup "$1"
 
-find "$1" -type f -exec chmod 664 {} \;
-find "$1" -type d -exec chmod 775 {} \;
+find "$1" -type f -exec chmod 666 {} \;
+find "$1" -type d -exec chmod 777 {} \;
 find "$1" -type d -exec chmod g+s {} \;
