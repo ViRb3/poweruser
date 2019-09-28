@@ -44,3 +44,8 @@ Use `LatencyMon` to diagnose faulty drivers
 - `Group Policy Editor > Admin Templates > Windows Ddefender Antivirus > Windows Update > Configure Automatic Updates`
 #### Disable Windows Defender
 - `Group Policy Editor > Admin Templates > Windows Ddefender Antivirus > Windows Update > Turn off...`
+#### Clear PowerShell/CMD console history
+- `Alt+F7`
+#### Icon overlays missing
+- Windows has a limit of 15 overlays at a time.
+- https://superuser.com/questions/1166577/why-does-windows-limit-icon-overlays-to-15
