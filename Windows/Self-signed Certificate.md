@@ -1,3 +1,4 @@
+## Generate self-signed certificate
 ```bash
 openssl genrsa -out ca.key 2048
 openssl req -new -x509 -days 365 -key ca.key -subj "/C=CN/ST=GD/L=SZ/O=Acme, Inc./CN=Acme Root CA" -out ca.crt
