@@ -23,7 +23,7 @@ Use `LatencyMon` to diagnose faulty drivers
 - Disable `NVIDIA Run with graphics processor` context menu entry in `NVIDIA Control Panel`
 
 #### Context menu delay when right-clicking an empty desktop
-- Disable `Intel Integrated Graphics` context menu entry (use `ShellExView`)
+- Disable `Intel Integrated Graphics` context menu entry ([ShellExView](https://www.nirsoft.net/utils/shexview.html))
 
 #### Wi-Fi using 2.4GHz band
 - Set `Preferred Band` to `5GHz` in `Device Manager > Wi-Fi adapter > Properties > Advanced`
