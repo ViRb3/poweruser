@@ -13,7 +13,7 @@ Use `LatencyMon` to diagnose faulty drivers
 - Uninstall `Nahimic` sound processing software
 
 #### Screen gamma changing when switching between black and white windows
-- Disable `Intel (Graphics) Display Power Saving Technology`: [Disable Intel Graphics Gamma.reg](reg/Disable%20Intel%20Graphics%20Gamma.reg)
+- Disable `Intel (Graphics) Display Power Saving Technology` ([dpst-control](https://github.com/orev/dpst-control))
 
 #### Microphone not working / very low in direct VoIP clients (TeamSpeak, Discord)
 - Disable sound effects from `Microphone settings > Enchantments > Disable all sound effects`
