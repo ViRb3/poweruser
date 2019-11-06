@@ -26,4 +26,13 @@ GIT_COMMITTER_DATE="Sat Mar 18 11:23:01 2017 +0200" git commit --amend --date "S
 
 #Set all commits' dates to author dates
 git filter-branch --env-filter 'GIT_COMMITTER_DATE=$GIT_AUTHOR_DATE; export GIT_COMMITTER_DATE'
+
+# Change name and e-mail
+git config --global user.email "you@example.com"
+git config --global user.name "Your Name"
+
+# Inject empty  commit to beginning of history
+tree=`git hash-object -wt tree --stdin < /dev/null`
+commit=`git commit-tree -m 'root commit' $tree`
+git rebase --onto $commit --root master
 ```
