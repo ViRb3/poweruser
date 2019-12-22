@@ -8,3 +8,5 @@ Collection of tips, tricks and scripts for becoming a true poweruser
 ## [Windows](Windows)
 
 ## [Git](Git.md)
+
+## [Nginx](https://github.com/ViRb3/nginx-gotchas)
