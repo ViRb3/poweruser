@@ -6,3 +6,5 @@ Collection of tips, tricks and scripts for becoming a true poweruser
 ## [Linux](Linux)
 
 ## [Windows](Windows)
+
+## [Git](Git.md)
