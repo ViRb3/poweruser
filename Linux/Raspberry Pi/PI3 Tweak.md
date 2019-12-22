@@ -1,7 +1,5 @@
-#!/bin/bash
-
-sudo bash -c "cat >> /boot/config.txt" <<EOF
-
+## `/boot/config.txt`:
+```
 arm_freq=1300
 gpu_freq=500
 
@@ -9,4 +7,4 @@ gpu_freq=500
 over_voltage=5
 
 gpu_mem=256
-EOF
+```
