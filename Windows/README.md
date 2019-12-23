@@ -8,8 +8,6 @@
 ### CompatTelRunner (high CPU/IO usage)
 - [Disable Telemetry.reg](Regs/Disable&#32;Telemetry.reg)
 
-#### Change MAC
-- https://technitium.com/tmac/
 ### Clear PowerShell/CMD console history
 - `Alt+F7`
 
