@@ -1,4 +1,6 @@
-## UFW
+## Block non-VPN internet traffic
+
+### UFW
 ```bash
 # Default policies
 ufw default deny incoming
@@ -14,7 +16,7 @@ ufw allow in from any to any port 53
 ufw allow out from any to any port 53
 ```
 
-## IPTables
+### IPTables
 ```bash
 $IPT -F
 # policies
