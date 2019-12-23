@@ -2,6 +2,17 @@
 ### Missing `MSVC---.dll`
 - https://support.microsoft.com/en-gb/help/2977003/the-latest-supported-visual-c-downloads
 
+### Clean VSS
+- As per [backupchain article](http://backupchain.com/i/how-to-delete-all-vss-shadows-and-orphaned-shadows):
+    ```powershell
+    vssadmin delete shadows /all
+    ```
+    Then for each drive:
+    ```powershell
+    vssadmin Resize ShadowStorage /For=C: /On=C: /MaxSize=300MB
+    vssadmin Resize ShadowStorage /For=C: /On=C: /MaxSize=UNBOUNDED
+    ```
+
 ### Windows Telemetry
 - https://github.com/crazy-max/WindowsSpyBlocker
 
