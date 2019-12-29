@@ -23,19 +23,6 @@ sync; sysctl -w vm.drop_caches=3
 dd if=tempfile of=/dev/null bs=1M count=1024
 ```
 
-### Clean iptables
-```bash
-iptables -F
-iptables -X
-iptables -t nat -F
-iptables -t nat -X
-iptables -t mangle -F
-iptables -t mangle -X
-iptables -P INPUT ACCEPT
-iptables -P FORWARD ACCEPT
-iptables -P OUTPUT ACCEPT
-```
-
 ### Fix git permissions
 ```bash
 find . -name "*.sh" -exec git add --chmod=+x {} +
