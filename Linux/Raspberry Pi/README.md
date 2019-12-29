@@ -4,6 +4,11 @@
 apt install kodi kodi-peripheral-joystick ntfs-3g
 ```
 
+## Measure temp through /sys
+```bash
+watch echo "$((`cat /sys/class/thermal/thermal_zone0/temp` / 1000))C"
+```
+
 ## Stress test 
 ```bash
 apt install stress sysbench
