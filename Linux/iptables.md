@@ -52,8 +52,8 @@ Routing decision                                                  |
 - `iptables -t nat -S`
 
 #### Debugging (tracing)
+- `iptables -t raw -A PREROUTING -p tcp -j TRACE`
 - `iptables -t raw -A OUTPUT -p icmp -j TRACE`
-- `iptables -t raw -A PREROUTING -p icmp -j TRACE`
 - `dmesg | grep TRACE`
 
 ### Targets
@@ -69,8 +69,16 @@ Routing decision                                                  |
 > This target is only valid in the nat table, in the `POSTROUTING` chain. It should only be used with dynamically assigned IP (dialup) connections: if you have a static IP address, you should use the SNAT target. Masquerading is equivalent to specifying a mapping to the IP address of the interface the packet is going out, but also has the effect that connections are forgotten when the interface goes down. This is the correct behavior when the next dialup is unlikely to have the same interface address (and hence any established connections are lost anyway). It takes one option:
 - `--to-ports port[-port]`
 
+### Logging
+- `iptables -A INPUT -p tcp -j LOG --log-level 1 --log-prefix "[prefix] "`
+
+#### Containers
+> Iptables `LOG` rules inside containers are suppressed by default. You can run ulogd in each container and use iptables `NFLOG` (or ULOG) rules instead of `LOG` rules. As of kernel 4.11, you can change this behavior on the host:
+- `echo 1 > /proc/sys/net/netfilter/nf_log_all_netns`
+
 ### Resources
 - https://wiki.archlinux.org/index.php/Iptables
 - https://gist.github.com/mcastelino/c38e71eb0809d1427a6650d843c42ac2
 - https://commons.wikimedia.org/wiki/File:Netfilter-packet-flow.svg
+- http://www.adminsehow.com/2011/09/iptables-packet-traverse-map/
 - https://backreference.org/2010/06/11/iptables-debugging/
