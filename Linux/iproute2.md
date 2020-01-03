@@ -2,9 +2,8 @@
 > iproute2 is a collection of userspace utilities for controlling and monitoring various aspects of networking in the Linux kernel, including routing, network interfaces, tunnels, traffic control, and network-related device drivers.
 
 ### Routing basics
-> The routing table is used in order of most specific to least specific
-
-> Linux has multiple routing tables, and when which routing table is used is dependent on a number of rules
+The routing table is used in order of most specific to least specific \
+Linux has multiple routing tables, and when which routing table is used is dependent on a number of rules
 - `ip rule show`
 ```
 0:  from all lookup local 
@@ -12,7 +11,8 @@
 32767:  from all lookup default
 ```
 - `ip route show table local`
-> Special routing table containing high priority control routes for local and broadcast addresses
+
+Special routing table containing high priority control routes for local and broadcast addresses
 ```
 broadcast 127.0.0.0 dev lo  proto kernel  scope link  src 127.0.0.1 
 local 127.0.0.0/8 dev lo  proto kernel  scope host  src 127.0.0.1 
@@ -23,14 +23,17 @@ local 192.168.1.27 dev eth0  proto kernel  scope host  src 192.168.1.27
 broadcast 192.168.1.255 dev eth0  proto kernel  scope link  src 192.168.1.27 
 ```
 - `ip route show table main`
-> Normal routing table containing all non-policy routes. This is also the table you get to see if you simply execute ip route show
+
+Normal routing table containing all non-policy routes. This is also the table you get to see if you simply execute ip route show
 ```
 default via 192.168.1.254 dev eth0 
 192.168.0.0/23 dev eth0  proto kernel  scope link  src 192.168.1.27 
 ```
 - `ip route show table default`
-> Empty and reserved for post-processing if previous default rules did not select the packet
+
+Empty and reserved for post-processing if previous default rules did not select the packet
 ```
+Dump terminated
 ```
 
 ### Add IP address to eth0 interface
