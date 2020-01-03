@@ -1,7 +1,9 @@
 ## iptables
+> iptables is a user-space utility program that allows a system administrator to configure the tables provided by the Linux kernel firewall and the chains and rules it stores.
 
 ### Packet flow
 #### Simplified
+_For Routing decision, check [iproute2](./iproute2.md)_
 ```
                                XXXXXXXXXXXXXXXXXX
                              XXX     Network    XXX
@@ -57,6 +59,12 @@ Routing decision                                                  |
 - `dmesg | grep TRACE`
 
 ### Targets
+> Packets traverse a chain until they hit `ACCEPT`, `DROP`, `REJECT`, or `RETURN`. They do not stop on a match unless that match contains a terminating action
+- `ACCEPT` means to let the packet through
+- `DROP` means to drop the packet on the floor, i.e. to discard it and not send any response
+- `REJECT` is used to send back an error packet in response to the matched packet: otherwise it is equivalent to `DROP`, so it is a terminating TARGET, ending rule traversal
+- `RETURN` means stop traversing this chain and resume at the next rule in the previous (calling) chain. If the end of a built-in chain is reached or a rule in a built-in chain with target `RETURN` is matched, the target specified by the chain policy determines the fate of the packet
+
 #### DNat (Destination NAT)
 > This target is only valid in the nat table, in the `PREROUTING` and `OUTPUT` chains, and user-defined chains which are only called from those chains. It specifies that the destination address of the packet should be modified (and all future packets in this connection will also be mangled), and rules should cease being examined. It takes one type of option:
 - `--to-destination ipaddr[-ipaddr][:port-port]`
@@ -82,3 +90,4 @@ Routing decision                                                  |
 - https://commons.wikimedia.org/wiki/File:Netfilter-packet-flow.svg
 - http://www.adminsehow.com/2011/09/iptables-packet-traverse-map/
 - https://backreference.org/2010/06/11/iptables-debugging/
+- https://unix.stackexchange.com/questions/191607/iptables-and-return-target
