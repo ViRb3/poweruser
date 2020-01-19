@@ -21,6 +21,7 @@
 
 ### Clear PowerShell/CMD console history
 - `Alt+F7`
+- `rm (Get-PSReadlineOption).HistorySavePath`
 
 ### Slow UI animations
 - Disable them from `Accessibility`
