@@ -18,6 +18,7 @@ passwd -dl [ACCOUNT]
 ```
 
 ### Disable account
+> :warning: This will disable SSH access
 ```sh
 passwd -edl [ACCOUNT]
 ```
