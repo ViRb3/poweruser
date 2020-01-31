@@ -24,7 +24,7 @@
 - `rm (Get-PSReadlineOption).HistorySavePath`
 
 ### Slow UI animations
-- Disable them from `Accessibility`
+- Disable them from `Ease of Access`
 
 ### Icon overlays missing
 - Windows has a limit of 15 overlays at a time.
