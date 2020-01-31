@@ -17,7 +17,7 @@
 - https://github.com/crazy-max/WindowsSpyBlocker
 
 ### CompatTelRunner (high CPU/IO usage)
-- [Disable Telemetry.reg](Regs/Disable&#32;Telemetry.reg)
+- [Disable Telemetry.reg](Regs/Disable%20CompatTelRunner.reg)
 
 ### Clear PowerShell/CMD console history
 - `Alt+F7`
