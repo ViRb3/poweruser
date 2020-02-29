@@ -1,4 +1,9 @@
 ## Linux
+### Generating strong secret
+```bash
+dd if=/dev/urandom bs=1 count=64 2>/dev/null | sha512sum
+```
+
 ### Auto-mount drive
 - `apt install ntfs-3g`
 - `/etc/fstab`:
