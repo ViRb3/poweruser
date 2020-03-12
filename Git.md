@@ -1,6 +1,9 @@
 ## Git
 
 ```bash
+# Fix executable permissions
+find . -name "*.sh" -exec git add --chmod=+x {} +
+
 # Change committer name
 git filter-branch --commit-filter \
 'if [ "$GIT_AUTHOR_EMAIL" = "old-john@email.com" ]; then \

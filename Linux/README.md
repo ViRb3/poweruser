@@ -28,11 +28,6 @@ sync; sysctl -w vm.drop_caches=3
 dd if=tempfile of=/dev/null bs=1M count=1024
 ```
 
-### Fix git permissions
-```bash
-find . -name "*.sh" -exec git add --chmod=+x {} +
-```
-
 ### Install bash-it with bobby theme
 ```bash
 git clone "https://github.com/Bash-it/bash-it.git" ~/.bash_it
