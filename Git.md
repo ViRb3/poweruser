@@ -60,3 +60,13 @@ tree=`git hash-object -wt tree --stdin < /dev/null`
 commit=`git commit-tree -m 'root commit' $tree`
 git rebase --onto $commit --root master
 ```
+
+### Change specific commit dates
+```bash
+git filter-branch --env-filter \
+    'if [ $GIT_COMMIT = c85320d9ddb90c13f4a215f1f0a87b531ab33310 ]
+     then
+         export GIT_AUTHOR_DATE="Fri 15 Mar 2019 12:01 AM"
+         export GIT_COMMITTER_DATE="Fri 16 Mar 2019 12:01 AM"
+     fi'
+```
