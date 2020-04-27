@@ -45,9 +45,9 @@ setfacl -R -d -m u::rwx,g::rwx,o::rwx "/mnt/drive"
 
 chown -R nobody:nogroup "/mnt/drive"
 
-find "/mnt/drive" -type f -exec chmod 666 {} \;
-find "/mnt/drive" -type d -exec chmod 777 {} \;
-find "/mnt/drive" -type d -exec chmod g+s {} \;
+find "/mnt/drive" -type f -exec chmod 666 -- {} +
+find "/mnt/drive" -type d -exec chmod 777 -- {} +
+find "/mnt/drive" -type d -exec chmod g+s -- {} +
 ```
 
 ### WireGuard generate private-public key pair

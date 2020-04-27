@@ -3,7 +3,7 @@
 
 ### Fix executable permissions
 ```bash
-find . -name "*.sh" -exec git add --chmod=+x {} +
+find . -name "*.sh" -exec git add --chmod=+x -- {} +
 ```
 
 ### Change committer name
