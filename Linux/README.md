@@ -38,7 +38,7 @@ sed -i -e "s/export BASH_IT_THEME='bobby'/export BASH_IT_THEME='candy'/g" ~/.bas
 ### Enforce max permissions
 ```bash
 # clear ACL
-# setfacl -bn "/mnt/drive"
+setfacl -b "/mnt/drive"
 
 # set 777 default ACL
 setfacl -R -d -m u::rwx,g::rwx,o::rwx "/mnt/drive"
