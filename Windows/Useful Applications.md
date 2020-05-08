@@ -47,3 +47,7 @@
 	> Connect to a computer remotely, be it from the other end of the office or halfway around the world. AnyDesk ensures secure and reliable remote desktop connections for IT professionals and on-the-go individuals alike
 - ### [AutoHideDesktopIcons](https://www.softwareok.com/?seite=Microsoft/AutoHideDesktopIcons)
 	> If you use desktop backgrounds, it helps you to see sometimes the wallpapers clean and in full bloom
+- ### [SylphyHornEx](https://github.com/ViRb3/SylphyHornEx)
+	> Virtual desktop tools for Windows 10, now with reordering
+- ### [PowerToys](https://github.com/microsoft/PowerToys)
+	> Windows system utilities to maximize productivity
