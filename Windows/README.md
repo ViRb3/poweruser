@@ -32,3 +32,6 @@
 
 ### 260 character limit in file names and paths
 - https://www.howtogeek.com/266621/how-to-make-windows-10-accept-file-paths-over-260-characters/
+
+### Multi-monitor maximized window blank/empty space on top of screen
+-  `Control Panel` > `Intel HD Graphics` > `Display` > `Scaling` > `Scale Full Screen`. Also enable `Override Application Settings`. _[[source](https://answers.microsoft.com/en-us/windows/forum/all/windows-10-multi-monitor-maximized-window/3c2042ef-73df-401c-9a59-65b347d4dbea)]_
