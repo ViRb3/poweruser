@@ -1,10 +1,10 @@
 # Windows
 
-## Categories
+## Sub-directories
 - [Registry keys](Regs/)
 - [Scripts](scripts/)
 
-## Individual
+## Categories
 - [Applications](Applications.md)
 - [Drivers](Drivers.md)
 - [Group Policies](Group%20Policies.md)
