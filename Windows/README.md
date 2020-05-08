@@ -1,5 +1,17 @@
 # Windows
 
+## Categories
+- [Registry keys](Regs/)
+- [Scripts](scripts/)
+
+## Individual
+- [Applications](Applications.md)
+- [Drivers](Drivers.md)
+- [Group Policies](Group%20Policies.md)
+- [Useful Applications](Useful%20Applications.md)
+- [Virtual Machine Setup](Virtual%20Machine%20Setup.md)
+- [Windows Server Setup](Windows%20Server%20Setup.md)
+
 ## General
 
 1. ### Missing `MSVC---.dll`
