@@ -35,3 +35,9 @@
 
 ### Multi-monitor maximized window blank/empty space on top of screen
 -  `Control Panel` > `Intel HD Graphics` > `Display` > `Scaling` > `Scale Full Screen`. Also enable `Override Application Settings`. _[[source](https://answers.microsoft.com/en-us/windows/forum/all/windows-10-multi-monitor-maximized-window/3c2042ef-73df-401c-9a59-65b347d4dbea)]_
+
+### Root certificate validation
+- Using [Sigcheck](https://docs.microsoft.com/en-us/sysinternals/downloads/sigcheck):
+    ```powershell
+    sigcheck -tv
+    ```
