@@ -76,3 +76,8 @@
     openssl req -newkey rsa:2048 -nodes -keyout server.key -subj "/C=CN/ST=GD/L=SZ/O=Acme, Inc./CN=*.example.com" -out server.csr
     openssl x509 -req -extfile <(printf "subjectAltName=DNS:example.com,DNS:www.example.com") -days 365 -in server.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out server.crt
     ```
+
+9. ### Enable `tmux` mouse mode
+    ```bash
+    cat "set -g mouse on" > ~/.tmux.conf
+    ```
