@@ -81,3 +81,11 @@
     ```bash
     cat "set -g mouse on" > ~/.tmux.conf
     ```
+
+10. ### Auto-login with `lightdm`
+    `/etc/lightdm/lightdm.conf.d/autologin.conf`:
+    ```ini
+    [SeatDefaults]
+    autologin-user=user
+    autologin-user-timeout=0
+    ```
