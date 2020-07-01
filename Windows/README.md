@@ -24,7 +24,7 @@
        ```
        Then for each drive:
        ```powershell
-       vssadmin Resize ShadowStorage /For=C: /On=C: /MaxSize=300MB
+       vssadmin Resize ShadowStorage /For=C: /On=C: /MaxSize=320MB
        vssadmin Resize ShadowStorage /For=C: /On=C: /MaxSize=UNBOUNDED
        ```
 
