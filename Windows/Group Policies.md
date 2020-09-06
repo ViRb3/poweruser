@@ -7,16 +7,7 @@
     - `Configure Automatic Updates`
       - 2 - Notify for download and auto install
 
-2. ### Disable Windows Defender
-   - Windows Components
-    - Windows Defender Antivirus
-      - `Turn off Windows Defender Antivirus`
-      - `Turn on behavior monitoring`
-      - `Monitor file and program activity on your computer`
-    - Realtime protection
-      - `Turn on process scanning whenever real-time protection is enabled`
-
-3. ### Allow BitLocker without TPM
+2. ### Allow BitLocker without TPM
    - BitLocker Drive Encryption
     - Operating System Drives
       - `Require additional authentication at startup`
