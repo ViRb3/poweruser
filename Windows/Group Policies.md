@@ -22,3 +22,9 @@
       - `Require additional authentication at startup`
         - Allow BitLocker without a compatible TPM
         - Do not allow TPM
+
+3. ### Disable hardware-based drive encryption (some drives implement bad crypto)
+   - BitLocker Drive Encryption
+    - Fixed Data Drives, Operating System Drives, Removable Data Drives
+      - `Configure use of hardware-based encryption of ...`
+        - Disabled
