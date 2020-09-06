@@ -16,7 +16,7 @@
     - Realtime protection
       - `Turn on process scanning whenever real-time protection is enabled`
 
-3. ### Allow BitLocker without TMP
+3. ### Allow BitLocker without TPM
    - BitLocker Drive Encryption
     - Operating System Drives
       - `Require additional authentication at startup`
