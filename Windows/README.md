@@ -7,6 +7,7 @@
 ## Categories
 - [Applications](Applications.md)
 - [Drivers](Drivers.md)
+- [Security](Security.md)
 - [Group Policies](Group%20Policies.md)
 - [Useful Applications](Useful%20Applications.md)
 - [Virtual Machine Setup](Virtual%20Machine%20Setup.md)
