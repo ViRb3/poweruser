@@ -9,8 +9,8 @@
 	> Screen capture, file sharing and productivity tool
 - ### [MailBird](https://www.getmailbird.com/)
 	> Email made easy & beautiful
-- ### [KeePass](https://keepass.info/)
-	> The free, open source, light-weight and easy-to-use password manager
+- ### [BitWarden](https://bitwarden.com/)
+	> Bitwarden, the open source password manager, makes it easy to generate and store unique passwords for any browser or device.
 - ### [7-Zip](https://www.7-zip.org/)
     > 7-Zip is a file archiver with a high compression ratio
 - ### [VLC Player](https://www.videolan.org/vlc/index.html)
@@ -25,10 +25,8 @@
 	> A tool to increase download speeds by up to 5 times, resume and schedule downloads
 
 ## File access
-- ### [FileZilla](https://filezilla-project.org/)
-    > The free FTP solution
-- ### [MountainDuck](https://mountainduck.io/)
-	> Mount server and cloud storage as a disk in Finder on macOS and the File Explorer on Windows. Open remote files with any application and work like on a local volume
+- ### [WinSCP](https://winscp.net/)
+    > WinSCP is a popular SFTP client and FTP client for Microsoft Windows
 - ### [Paragon LinuxFS](https://www.paragon-software.com/home/linuxfs-windows/)
 	> A tool which gives you full access to Linux volumes within Windows
 
@@ -49,5 +47,9 @@
 	> If you use desktop backgrounds, it helps you to see sometimes the wallpapers clean and in full bloom
 - ### [SylphyHornEx](https://github.com/ViRb3/SylphyHornEx)
 	> Virtual desktop tools for Windows 10, now with reordering
+- ### [AlwaysOnTopper](https://github.com/ClusterM/AlwaysOnTopper)
+	> Simple app for Windows, adds 'Always on top' item to system menu of every window
 - ### [PowerToys](https://github.com/microsoft/PowerToys)
 	> Windows system utilities to maximize productivity
+- ### [ThrottleStop](https://www.techpowerup.com/download/techpowerup-throttlestop/)
+	> ThrottleStop is a small application designed to monitor for and correct the three main types of CPU throttling that are being used on many laptop computers.
