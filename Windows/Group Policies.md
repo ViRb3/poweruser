@@ -7,7 +7,20 @@
     - `Configure Automatic Updates`
       - 2 - Notify for download and auto install
 
-2. ### Allow BitLocker without TPM
+2. ### Disable Windows Defender
+   - Windows Components
+    - Microsoft Defender Antivirus
+      - `Turn off Microsoft Defender Antivirus`
+      - Realtime protection
+        - `Turn off real-time protection`
+        - `Turn on behavior monitoring`
+      - MAPS
+        - `Join Microsoft MAPS`
+          - `Enable` policy, set to `Disabled`
+        - `Send file samples when further analysis is required`
+          - Never send
+
+3. ### Allow BitLocker without TPM
    - BitLocker Drive Encryption
     - Operating System Drives
       - `Require additional authentication at startup`
