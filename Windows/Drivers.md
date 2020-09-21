@@ -1,13 +1,6 @@
 ## Drivers
 
 ### Generic
-   1. #### DPC Latency (sound popping, stutter, lag)
-      - Disable `NVIDIA Battery Boost` in `NVIDIA GeForce Experience`
-      - Disable `CD/DVD device` in `Device Manager`
-      - Faulty SATA controller driver, install `Intel RST` if applicable
-     
-       Use `LatencyMon` to diagnose faulty drivers
-
    2. #### Screen gamma changing when switching between black and white windows
       - Disable `Intel (Graphics) Display Power Saving Technology` ([dpst-control](https://github.com/orev/dpst-control))
 
@@ -44,3 +37,10 @@
 
 5. #### Context menu delay when right-clicking an empty desktop
    - Disable `Intel Integrated Graphics` context menu entry ([ShellExView](https://www.nirsoft.net/utils/shexview.html))
+
+6. #### DPC Latency (sound popping, stutter, lag)
+   - Disable `NVIDIA Battery Boost` in `NVIDIA GeForce Experience`
+   - Disable `CD/DVD device` in `Device Manager`
+   - Faulty SATA controller driver, install `Intel RST` if applicable
+
+   Use `LatencyMon` to diagnose faulty drivers
