@@ -7,7 +7,7 @@
    3. #### Wi-Fi using 2.4GHz band
       - Set `Preferred Band` to `5GHz` in `Device Manager > Wi-Fi adapter > Properties > Advanced`
 
-### Lenovo
+### Lenovo Legion 7i
    1. #### Command-line interface for Lenovo Diagnostics constantly running and using CPU
       - Run in Administrator Powershell:
 
@@ -21,7 +21,7 @@
    3. ### Lenovo Vantage bloatware
       - Disable it via the [Enterprise Group Policy](Regs/Lenovo%20Vantage/README.md)
 
-### MSI
+### MSI GE66 2QD
 1. #### Very long Windows start delay
    - Disable the `Intel Management Engine` device from `Device Manager`
 
