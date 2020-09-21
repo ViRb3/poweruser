@@ -22,6 +22,12 @@
          [microsoft.win32.registry]::SetValue("HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\LenovoDiagnosticsCLI.exe", "Debugger", "systray.exe")
          ```
 
+   2. ### External monitor laggy/choppy/low FPS when first connected via cable
+      - Restart `Intel Graphics` driver ([intel-graphics-control](scripts/intel-graphics-control/README.md))
+
+   3. ### Lenovo Vantage bloatware
+      - Disable it via the [Enterprise Group Policy](Regs/Lenovo%20Vantage/README.md)
+
 ### MSI
 1. #### Very long Windows start delay
    - Disable the `Intel Management Engine` device from `Device Manager`

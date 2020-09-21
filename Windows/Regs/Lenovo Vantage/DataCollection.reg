@@ -1,0 +1,11 @@
+Windows Registry Editor Version 5.00
+
+;Hide and disable the settings related to collecting anonymous usage data in Vantage
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Lenovo\E046963F.LenovoCompanion_k1h2ywk1493x8]
+"422FDE50-51D5-4A5B-9A44-7B19BCD03A29"=dword:00000000
+"422FDE50-51D5-4A5B-9A44-7B19BCD03A29_UserConfigurable"=dword:00000000
+"422FDE50-51D5-4A5B-9A44-7B19BCD03A29_UserDefaultPreference"=dword:00000000
+
+;Disable collecting anonymous usage data in LSIF
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Lenovo\ImController]
+"DisableSystemInterfaceUsageStats"=dword:00000001

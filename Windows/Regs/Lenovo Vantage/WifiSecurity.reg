@@ -1,0 +1,15 @@
+Windows Registry Editor Version 5.00
+
+;Disable the WiFi Security plugin of LSIF
+;This also has the effect of hiding the WiFi Security toggle in the Lenovo Vantage toolbar
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Lenovo\ImController\Plugins\LenovoWiFiSecurityPlugin]
+"Imc-Block"=dword:00000001
+
+;Hide the Preferences page in the Vantage GUI (where WiFi Security is enabled/disabled)
+;This also has the effect of hiding the WiFi Security tile on the Vantage home screen
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Lenovo\E046963F.LenovoCompanion_k1h2ywk1493x8]
+"2885591F-F5A8-477A-9744-D1B9F30B5B79"=dword:00000000
+
+;Hide the WiFi Security setting on the Preferences screen
+[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Lenovo\LenovoWiFiSecurityPlugin]
+"DisableAll"=dword:00000001
