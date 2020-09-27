@@ -1,4 +1,5 @@
 ## `/boot/config.txt`:
+
 ```
 arm_freq=1575
 gpu_freq=500

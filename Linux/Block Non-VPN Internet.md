@@ -1,13 +1,14 @@
 ## Block non-VPN internet traffic
 
 ### UFW
+
 ```bash
 # Default policies
 ufw default deny incoming
 ufw default deny outgoing
 # Openvpn interface
 ufw allow in on tun0
-ufw allow out on tun0 
+ufw allow out on tun0
 # OpenVPN
 ufw allow out to any port 1194
 ufw allow in from any port 1194
@@ -17,6 +18,7 @@ ufw allow out from any to any port 53
 ```
 
 ### IPTables
+
 ```bash
 $IPT -F
 # policies
@@ -27,7 +29,7 @@ $IPT -P FORWARD DROP                                                   # default
 $IPT -A OUTPUT --out-interface lo -j ACCEPT                             # enable localhost
 $IPT -A OUTPUT --out-interface tap0 -j ACCEPT                           # enable outputs on OpenVPN interface
 $IPT -A OUTPUT -p tcp --dport 1194 -j ACCEPT                            # enable port for establishing VPN
-$IPT -A OUTPUT -p udp --dport 1194 -j ACCEPT                            
+$IPT -A OUTPUT -p udp --dport 1194 -j ACCEPT
 $IPT -A OUTPUT -p tcp --dport 53 -j ACCEPT                              # enable DNS requests
 $IPT -A OUTPUT -p udp --dport 53 -j ACCEPT
 # allowed inputs
