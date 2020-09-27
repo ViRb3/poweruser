@@ -21,6 +21,9 @@
    3. ### Lenovo Vantage bloatware
       - Disable it via the [Enterprise Group Policy](Regs/Lenovo%20Vantage/README.md)
 
+   4. Built-in monitor only supports 144/240Hz
+      - Use [Custom Resolution Utility](https://www.monitortests.com/forum/Thread-Custom-Resolution-Utility-CRU) to add a new `Detailed resolution` with 60Hz
+
 ### MSI GE66 2QD
 1. #### Very long Windows start delay
    - Disable the `Intel Management Engine` device from `Device Manager`
