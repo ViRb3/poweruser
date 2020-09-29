@@ -34,4 +34,5 @@
    `Control Panel` > `Power Options` > `Choose what the power buttons do`
 
 4. #### Enable auto-lock
+
    `Search` > `Change screen saver` > `On resume, display logon screen`

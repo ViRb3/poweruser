@@ -37,5 +37,5 @@
 6.  #### DPC Latency (sound popping, stutter, lag)
     - Disable `NVIDIA Battery Boost` in `NVIDIA GeForce Experience`
     - Disable `CD/DVD device` in `Device Manager`
-    - Faulty SATA controller driver, install `Intel RST` if applicable \
+    - Faulty SATA controller driver, install `Intel RST` if applicable
     - Use `LatencyMon` to diagnose faulty drivers
