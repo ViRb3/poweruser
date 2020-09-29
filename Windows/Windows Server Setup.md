@@ -1,4 +1,4 @@
-## Windows Server Setup
+# Windows Server Setup
 
 1. #### Uninstall Windows Defender
 

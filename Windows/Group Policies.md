@@ -1,33 +1,33 @@
-## Group Policies
+# Group Policies
 
 `Local Group Policy Editor\Computer Configuration\Admin Templates\Windows Components`
 
-### Windows Update
+1. ### Disable automatic update
 
-- Windows Update
-  - No auto-restart with logged on users for scheduled automatic updates installations
-    - Configure Automatic Updates
-      - `2 - Notify for download and auto install`
+   - Windows Update
+     - No auto-restart with logged on users for scheduled automatic updates installations
+       - Configure Automatic Updates
+         - `2 - Notify for download and auto install`
 
-### Disable Windows Defender
+2. ### Disable Defender
 
-- Windows Components
-  - Microsoft Defender Antivirus
-    - Turn off Microsoft Defender Antivirus
-    - Realtime protection
-      - Turn off real-time protection
-      - Turn on behavior monitoring
-        - `Disable` policy
-    - MAPS
-      - Join Microsoft MAPS
-        - `Enable` policy, set to `Disabled`
-      - Send file samples when further analysis is required
-        - `Never send`
+   - Windows Components
+     - Microsoft Defender Antivirus
+       - Turn off Microsoft Defender Antivirus
+       - Realtime protection
+         - Turn off real-time protection
+         - Turn on behavior monitoring
+           - `Disable` policy
+       - MAPS
+         - Join Microsoft MAPS
+           - `Enable` policy, set to `Disabled`
+         - Send file samples when further analysis is required
+           - `Never send`
 
-### Allow BitLocker without TPM
+3. ### Allow BitLocker without TPM
 
-- BitLocker Drive Encryption
-  - Operating System Drives
-    - Require additional authentication at startup
-      - Allow BitLocker without a compatible TPM
-      - Do not allow TPM
+   - BitLocker Drive Encryption
+     - Operating System Drives
+       - Require additional authentication at startup
+         - Allow BitLocker without a compatible TPM
+         - Do not allow TPM

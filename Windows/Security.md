@@ -1,4 +1,4 @@
-## Security
+# Security
 
 1. #### Disable TPM to use password-mode BitLocker encryption
 

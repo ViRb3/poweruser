@@ -2,10 +2,10 @@
 
 ## Generic
 
-1.  #### Screen gamma changing when switching between black and white windows
-    - Disable `Intel (Graphics) Display Power Saving Technology` ([dpst-control](https://github.com/orev/dpst-control))
-2.  #### Wi-Fi using 2.4GHz band
-    - Set `Preferred Band` to `5GHz` in `Device Manager > Wi-Fi adapter > Properties > Advanced`
+1. #### Screen gamma changing when switching between black and white windows
+   - Disable `Intel (Graphics) Display Power Saving Technology` ([dpst-control](https://github.com/orev/dpst-control))
+2. #### Wi-Fi using 2.4GHz band
+   - Set `Preferred Band` to `5GHz` in `Device Manager > Wi-Fi adapter > Properties > Advanced`
 
 ## Lenovo Legion 7i
 
@@ -23,21 +23,21 @@
 
 ## MSI GE66 2QD
 
-1.  #### Very long Windows start delay
-    - Disable the `Intel Management Engine` device from `Device Manager`
-2.  #### Inability to click certain toolbar items in various programs
-    - Uninstall `Nahimic` sound processing software
-3.  #### Microphone not working / very low in direct VoIP clients (TeamSpeak, Discord)
-    - Disable sound effects from `Microphone settings > Enchantments > Disable all sound effects`
-    - Increase `Microphone Level` to `100`
-4.  #### Context menu delay when right-clicking Executable Files (\*.exe)
-    - Disable `NVIDIA Run with graphics processor` context menu entry in `NVIDIA Control Panel`
-5.  #### Context menu delay when right-clicking an empty desktop
-    - Disable `Intel Integrated Graphics` context menu entry ([ShellExView](https://www.nirsoft.net/utils/shexview.html))
-6.  #### DPC Latency (sound popping, stutter, lag)
-    - Disable `NVIDIA Battery Boost` in `NVIDIA GeForce Experience`
-    - Disable `CD/DVD device` in `Device Manager`
-    - Faulty SATA controller driver, install `Intel RST` if applicable
-    - Use `LatencyMon` to diagnose faulty drivers
-7.  #### Multi-monitor maximized window blank/empty space on top of screen
-    - `Control Panel` > `Intel HD Graphics` > `Display` > `Scaling` > `Scale Full Screen`. Also enable `Override Application Settings`. _[[source](https://answers.microsoft.com/en-us/windows/forum/all/windows-10-multi-monitor-maximized-window/3c2042ef-73df-401c-9a59-65b347d4dbea)]_
+1. #### Very long Windows start delay
+   - Disable the `Intel Management Engine` device from `Device Manager`
+2. #### Inability to click certain toolbar items in various programs
+   - Uninstall `Nahimic` sound processing software
+3. #### Microphone not working / very low in direct VoIP clients (TeamSpeak, Discord)
+   - Disable sound effects from `Microphone settings > Enchantments > Disable all sound effects`
+   - Increase `Microphone Level` to `100`
+4. #### Context menu delay when right-clicking Executable Files (\*.exe)
+   - Disable `NVIDIA Run with graphics processor` context menu entry in `NVIDIA Control Panel`
+5. #### Context menu delay when right-clicking an empty desktop
+   - Disable `Intel Integrated Graphics` context menu entry ([ShellExView](https://www.nirsoft.net/utils/shexview.html))
+6. #### DPC Latency (sound popping, stutter, lag)
+   - Disable `NVIDIA Battery Boost` in `NVIDIA GeForce Experience`
+   - Disable `CD/DVD device` in `Device Manager`
+   - Faulty SATA controller driver, install `Intel RST` if applicable
+   - Use `LatencyMon` to diagnose faulty drivers
+7. #### Multi-monitor maximized window blank/empty space on top of screen
+   - `Control Panel` > `Intel HD Graphics` > `Display` > `Scaling` > `Scale Full Screen`. Also enable `Override Application Settings`. _[[source](https://answers.microsoft.com/en-us/windows/forum/all/windows-10-multi-monitor-maximized-window/3c2042ef-73df-401c-9a59-65b347d4dbea)]_
