@@ -46,25 +46,11 @@
    - `Alt+F7`
    - `rm (Get-PSReadlineOption).HistorySavePath`
 
-6. #### Slow UI animations
-
-   - Disable them from `Ease of Access`
-
-7. #### Icon overlays missing
+6. #### Icon overlays missing
 
    - Windows has a limit of 15 overlays at a time.
    - https://superuser.com/questions/1166577/why-does-windows-limit-icon-overlays-to-15
 
-8. #### 260 character limit in file names and paths
+7. #### 260 character limit in file names and paths
 
    - https://www.howtogeek.com/266621/how-to-make-windows-10-accept-file-paths-over-260-characters/
-
-9. #### Multi-monitor maximized window blank/empty space on top of screen
-
-   - `Control Panel` > `Intel HD Graphics` > `Display` > `Scaling` > `Scale Full Screen`. Also enable `Override Application Settings`. _[[source](https://answers.microsoft.com/en-us/windows/forum/all/windows-10-multi-monitor-maximized-window/3c2042ef-73df-401c-9a59-65b347d4dbea)]_
-
-10. #### Root certificate validation
-    - Using [Sigcheck](https://docs.microsoft.com/en-us/sysinternals/downloads/sigcheck):
-      ```powershell
-      sigcheck -tv
-      ```

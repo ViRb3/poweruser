@@ -39,3 +39,5 @@
     - Disable `CD/DVD device` in `Device Manager`
     - Faulty SATA controller driver, install `Intel RST` if applicable
     - Use `LatencyMon` to diagnose faulty drivers
+7.  #### Multi-monitor maximized window blank/empty space on top of screen
+    - `Control Panel` > `Intel HD Graphics` > `Display` > `Scaling` > `Scale Full Screen`. Also enable `Override Application Settings`. _[[source](https://answers.microsoft.com/en-us/windows/forum/all/windows-10-multi-monitor-maximized-window/3c2042ef-73df-401c-9a59-65b347d4dbea)]_

@@ -36,3 +36,9 @@
 4. #### Enable auto-lock
 
    `Search` > `Change screen saver` > `On resume, display logon screen`
+
+5. #### Root certificate validation
+   - Using [Sigcheck](https://docs.microsoft.com/en-us/sysinternals/downloads/sigcheck):
+     ```powershell
+     sigcheck -tv
+     ```
