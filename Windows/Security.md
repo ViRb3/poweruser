@@ -43,3 +43,9 @@
      ```powershell
      sigcheck -tv
      ```
+
+6. #### Avoid browser fingerprinting
+   - Use [Brave browser](https://brave.com/) with `Fingerprinting blocking` set to `Strict`
+   - To verify:
+     - https://panopticlick.eff.org/
+     - https://amiunique.org/
