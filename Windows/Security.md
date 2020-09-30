@@ -4,7 +4,7 @@
 
    Refer to BIOS manual
 
-2. #### Disable hardware-based drive encryption
+2. #### Ensure no hardware-based drive encryption
 
    [Prior to Windows 10 1709](https://hexus.net/tech/news/software/135266-microsoft-stops-trusting-ssd-maker-hardware-encryption/), BitLocker will offload encryption to supported hard drives. Unfortunately, [some of them](https://discordapp.com/channels/517246314346709012/685963469862076540/752689362113921114) implement fake or flawed crypto, which defeats the purpose of BitLocker.
 
@@ -14,14 +14,14 @@
    manage-bde.exe -status
    ```
 
-   To disable hardware encryption:
+   To disable hardware encryption, set the following `Group Policy`:
 
    - BitLocker Drive Encryption
    - Fixed Data Drives, Operating System Drives, Removable Data Drives
      - `Configure use of hardware-based encryption of ...`
      - Disabled
 
-   Or, decrypt the drive, then run:
+   Or alternatively, decrypt the drive, then run:
 
    ```powershell
    Enable-BitLocker -HardwareEncryption:$False
@@ -38,6 +38,7 @@
    `Search` > `Change screen saver` > `On resume, display logon screen`
 
 5. #### Root certificate validation
+
    - Using [Sigcheck](https://docs.microsoft.com/en-us/sysinternals/downloads/sigcheck):
      ```powershell
      sigcheck -tv
