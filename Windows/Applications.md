@@ -18,3 +18,17 @@
 1. #### Filtering does not work on all websites
    - Certain browsers (such as Firefox) will pin the original certificate if connecting without AdGuard, preventing AdGuard from working in the future
    - Delete all history and cache to clean such records
+
+## ThrottleStop
+
+1. #### Auto-start
+   1. Run in Administrator Powershell:
+      ```powershell
+      $A = New-ScheduledTaskAction -Execute "C:\Program Files\ThrottleStop\ThrottleStop.exe"
+      $T = New-ScheduledTaskTrigger -AtLogon
+      $P = New-ScheduledTaskPrincipal -GroupId "BUILTIN\Administrators" -RunLevel Highest
+      $S = New-ScheduledTaskSettingsSet -AllowStartIfOnBatteries -ExecutionTimeLimit '00:00:00'
+      $D = New-ScheduledTask -Action $A -Principal $P -Trigger $T -Settings $S
+      Register-ScheduledTask "ThrottleStop" -InputObject $D
+      ```
+   2. From the ThrottleStop GUI, go to `Options` and tick `Start Minimized`
