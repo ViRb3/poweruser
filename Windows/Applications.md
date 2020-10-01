@@ -15,9 +15,9 @@
 
 ## AdGuard
 
-1. #### Filtering does not work on all websites
-   - Certain browsers (such as Firefox) will pin the original certificate if connecting without AdGuard, preventing AdGuard from working in the future
-   - Delete all history and cache to clean such records
+1. #### Filtering does not work
+   - [HTTP Debugger](https://www.httpdebugger.com/) uses an [outdated driver](https://github.com/AdguardTeam/AdguardForWindows/issues/2979) which prevents AdGuard from working
+   - Uninstall HTTP Debugger
 
 ## ThrottleStop
 
