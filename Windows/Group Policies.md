@@ -1,33 +1,11 @@
 # Group Policies
 
-`Local Group Policy Editor\Computer Configuration\Admin Templates\Windows Components`
+Using the [LGPO](https://www.microsoft.com/en-us/download/details.aspx?id=55319) tool _(mirror [here](https://github.com/ViRb3/windows-vm-ansible/blob/master/res/policies/LGPO.exe))_, import any of the following policies:
+- [Privacy](https://github.com/ViRb3/windows-vm-ansible/blob/master/res/policies/privacy.txt)
+- [Disable Defender](https://github.com/ViRb3/windows-vm-ansible/blob/master/res/policies/defender.txt)
 
-1. ### Disable automatic update
+Example:
 
-   - Windows Update
-     - No auto-restart with logged on users for scheduled automatic updates installations
-       - Configure Automatic Updates
-         - `2 - Notify for download and auto install`
-
-2. ### Disable Defender
-
-   - Windows Components
-     - Microsoft Defender Antivirus
-       - Turn off Microsoft Defender Antivirus
-       - Realtime protection
-         - Turn off real-time protection
-         - Turn on behavior monitoring
-           - `Disable` policy
-       - MAPS
-         - Join Microsoft MAPS
-           - `Enable` policy, set to `Disabled`
-         - Send file samples when further analysis is required
-           - `Never send`
-
-3. ### Allow BitLocker without TPM
-
-   - BitLocker Drive Encryption
-     - Operating System Drives
-       - Require additional authentication at startup
-         - Allow BitLocker without a compatible TPM
-         - Do not allow TPM
+```powershell
+.\LGPO.exe /t privacy.txt
+```

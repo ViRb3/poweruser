@@ -1,8 +1,16 @@
 # Security
 
-1. #### Disable TPM to use password-mode BitLocker encryption
+1. #### Disable TPM and use password-mode BitLocker encryption
 
-   Refer to BIOS manual
+   1. Refer to BIOS manual to disable TPM chip
+   2. Set the following `Group Policy`:
+      - BitLocker Drive Encryption
+      - Operating System Drives
+        - `Require additional authentication at startup`
+          - Enabled
+          - `Allow BitLocker without a compatible TPM ...`
+          - Configure TPM Startup
+            - `Do not allow TPM`
 
 2. #### Ensure no hardware-based drive encryption
 
@@ -19,7 +27,7 @@
    - BitLocker Drive Encryption
    - Fixed Data Drives, Operating System Drives, Removable Data Drives
      - `Configure use of hardware-based encryption of ...`
-     - Disabled
+       - Disabled
 
    Or alternatively, decrypt the drive, then run:
 
