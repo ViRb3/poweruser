@@ -20,6 +20,8 @@
     - Disable it via the [Enterprise Group Policy](Regs/Lenovo%20Vantage/README.md)
 4.  #### Built-in monitor only supports 144/240Hz
     - Use [Custom Resolution Utility](https://www.monitortests.com/forum/Thread-Custom-Resolution-Utility-CRU) to add a new `Detailed resolution` with 60Hz
+5.  #### Disable mouse/keyboard waking up computer from sleep
+    - In `Device Manager`, for each entry under `Keyboards` and `Mice and other pointing devices`, go to `Power Management` > untick `Allow this device to wake up the computer`
 
 ## MSI GE66 2QD
 
