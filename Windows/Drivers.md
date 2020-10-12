@@ -23,7 +23,7 @@
 5.  #### Disable mouse/keyboard waking up computer from sleep
     - In `Device Manager`, for each entry under `Keyboards` and `Mice and other pointing devices`, go to `Power Management` > untick `Allow this device to wake up the computer`
 
-## MSI GE66 2QD
+## MSI GE62 2QD
 
 1. #### Very long Windows start delay
    - Disable the `Intel Management Engine` device from `Device Manager`
