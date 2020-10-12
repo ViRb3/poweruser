@@ -16,8 +16,12 @@
 ## AdGuard
 
 1. #### Filtering does not work
-   - [HTTP Debugger](https://www.httpdebugger.com/) uses an [outdated driver](https://github.com/AdguardTeam/AdguardForWindows/issues/2979) which prevents AdGuard from working
-   - Uninstall HTTP Debugger
+   - [HTTP Debugger](https://www.httpdebugger.com/)
+     - Uses an [outdated driver](https://github.com/AdguardTeam/AdguardForWindows/issues/2979) which prevents AdGuard from working
+     - Uninstall HTTP Debugger
+   - Browser certificate pinning
+     - Browsers like Chrome and Firefox will pin the original certificate if ever connecting without AdGuard
+     - Delete all history and cache to clean such records
 
 ## ThrottleStop
 
