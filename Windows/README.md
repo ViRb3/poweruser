@@ -12,7 +12,7 @@
 - [Security](Security.md)
 - [Group Policies](Group%20Policies.md)
 - [Useful Applications](Useful%20Applications.md)
-- [Virtual Machine Setup](https://github.com/ViRb3/windows-vm-ansible)
+- [Virtual Machine Setup](https://github.com/ViRb3/windows-plus-plus-ansible)
 - [Windows Server Setup](Windows%20Server%20Setup.md)
 
 ## General
