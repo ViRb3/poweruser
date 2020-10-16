@@ -53,7 +53,32 @@
      ```
 
 6. #### Avoid browser fingerprinting
+
    - Use [Brave browser](https://brave.com/) with `Fingerprinting blocking` set to `Strict`
    - To verify:
      - https://panopticlick.eff.org/
      - https://amiunique.org/
+
+7. #### Avoid ZoneID URL leak
+
+   Every major browser, when downloading an executable, will permanently inject the download URL to the file's alternate stream `Zone.Identifier` (all platforms).
+
+   - To view if a file has a ZoneID on Windows, in Powershell run:
+     ```powershell
+     cat file.exe -stream zone.identifier
+     ```
+   - To clear the ZoneID in Windows:
+     - In Powershell run:
+       ```powershell
+       Unblock-File file.exe
+       ```
+     - `Right-click` on the file > `Properties` > tick `Unblock` > click `OK`
+   - Avoid ZoneID leak:
+     - Use incognito mode. That will only store `HostUrl=about:internet` (tested on Chrome and Firefox)
+     - Use [Brave browser](https://brave.com/). It always stores `HostUrl=about:internet`
+
+8. #### Avoid debugging symbols build path leak
+   Some compilers such as MSVC on Windows generate PDB symbols by default. For user convenience, the full path to the symbols file at build time will be stored in every binary.
+   - Avoid leak:
+     - Disable symbol generation
+     - Hex edit the path out
