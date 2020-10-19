@@ -1,6 +1,6 @@
 # Group Policies
 
-Using the [LGPO](https://www.microsoft.com/en-us/download/details.aspx?id=55319) tool _(mirror [here](https://github.com/ViRb3/windows-plus-plus-ansible/blob/master/res/policies/LGPO.exe))_, import any of the policies from [windows-plus-plus-ansible](https://github.com/ViRb3/windows-plus-plus-ansible/tree/master/res/policies).
+Using the [LGPO](https://www.microsoft.com/en-us/download/details.aspx?id=55319) tool _(mirror [here](https://github.com/ViRb3/windows-ansible/blob/master/res/policies/LGPO.exe))_, import any of the policies from [windows-ansible](https://github.com/ViRb3/windows-ansible/tree/master/res/policies).
 
 Example:
 
