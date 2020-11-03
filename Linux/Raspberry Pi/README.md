@@ -20,7 +20,7 @@
 2. #### Measure temp through /sys
 
    ```bash
-   watch echo "$((`cat /sys/class/thermal/thermal_zone0/temp` / 1000))C"
+   watch cat /sys/class/thermal/thermal_zone0/temp"
    ```
 
 3. #### Stress test
