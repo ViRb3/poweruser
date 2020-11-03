@@ -90,8 +90,10 @@
 9. #### Enable `tmux` mouse mode
 
    ```bash
-   cat "set -g mouse on" > ~/.tmux.conf
+   echo "set -g mouse on" > ~/.tmux.conf
    ```
+
+   On Windows, make sure to use `bash` as your console host.
 
 10. #### Auto-login with `lightdm`
     `/etc/lightdm/lightdm.conf.d/autologin.conf`:
