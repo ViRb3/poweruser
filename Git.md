@@ -66,8 +66,12 @@
 
     ```bash
     tree=`git hash-object -wt tree --stdin < /dev/null`
-    commit=`git commit-tree -m 'root commit' $tree`
-    git rebase --onto $commit --root master
+    commit=`GIT_AUTHOR_NAME=root \
+    GIT_AUTHOR_EMAIL=root \
+    GIT_COMMITTER_NAME=root \
+    GIT_COMMITTER_EMAIL=root \
+    git commit-tree -m 'root commit' $tree`
+    git branch newroot $commit
     ```
 
 11. #### Change specific commit dates
