@@ -9,14 +9,14 @@
 2. #### Change committer name
 
    ```bash
-   git filter-branch --commit-filter \
-   'if [ "$GIT_AUTHOR_EMAIL" = "old-john@email.com" ]; then \
-   export GIT_AUTHOR_NAME="John Doe";\
-   export GIT_AUTHOR_EMAIL=john@email.com;\
+   git filter-branch -f --env-filter '
+   if [ "$GIT_AUTHOR_NAME" = "root" ]; then \
+   export GIT_AUTHOR_NAME="root";\
+   export GIT_AUTHOR_EMAIL=root;\
    export GIT_COMMITTER_NAME="$GIT_AUTHOR_NAME";\
    export GIT_COMMITTER_EMAIL="$GIT_AUTHOR_EMAIL";\
    fi;\
-   git commit-tree "$@"'
+   ' --tag-name-filter cat -- --branches --tags
    ```
 
 3. #### Push content overwriting remote
