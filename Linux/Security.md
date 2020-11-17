@@ -122,3 +122,5 @@
    ```
 
    Now, you can simply `ufw allow` any port and it will be allowed to enter the host and any Docker container. Otherwise, it will be dropped.
+
+9. ### [Avoid browser fingerprinting](https://github.com/ViRb3/poweruser/blob/master/Windows/Security.md#avoid-browser-fingerprinting)

@@ -55,6 +55,9 @@
 6. #### Avoid browser fingerprinting
 
    - Use [Brave browser](https://brave.com/) with `Fingerprinting blocking` set to `Strict`
+   - Use [Tor browser](https://www.torproject.org/) without the Tor network:
+     - Set environment variable `TOR_SKIP_LAUNCH=1`
+     - Open the URL `about:config`, then set `network.dns.disabled=false`
    - To verify:
      - https://panopticlick.eff.org/
      - https://amiunique.org/
