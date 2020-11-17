@@ -1,34 +1,27 @@
 ## Security
 
-1. ### fail2ban
-
+1. #### fail2ban
    ```sh
    apt install fail2ban
    ```
-
-2. ### ufw
-
+2. #### ufw
    ```sh
    apt install ufw
    ufw allow ssh
    ufw enable
    ```
-
-3. ### Disable password
+3. #### Disable password
 
    ```sh
    passwd -dl [ACCOUNT]
    ```
 
-4. ### Disable account
-
+4. #### Disable account
    > :warning: This will disable SSH access
-
    ```sh
    passwd -edl [ACCOUNT]
    ```
-
-5. ### sshd_config
+5. #### sshd_config
 
    ```conf
    PasswordAuthentication no
@@ -37,29 +30,28 @@
    PermitRootLogin prohibit-password
    ```
 
-6. ### Delete shell history on exit
+6. #### Delete shell history on exit
 
    - `apt install secure-delete`
    - `~/.bash_logout`:
+     ```bash
+     srm ~/.bash_history 2> /dev/null
+     # will prevent saving buffer to ~/.bash_history
+     history -c
+     ```
 
-   ```bash
-   srm ~/.bash_history 2> /dev/null
-   # will prevent saving buffer to ~/.bash_history
-   history -c
-   ```
+7. #### No logging
 
-7. ### No logging
+   #### dmesg
 
-   #### dmesg: `/etc/sysctl.conf `
-
-   ```conf
-   # Uncomment the following to stop low-level messages on console
-   kernel.printk = 3 4 1 3
-   ```
-
-   ```bash
-   dmegs -c
-   ```
+   - `/etc/sysctl.conf `:
+     ```conf
+     # Uncomment the following to stop low-level messages on console
+     kernel.printk = 3 4 1 3
+     ```
+   - ```bash
+     dmesg -c
+     ```
 
    #### syslog
 
@@ -76,7 +68,7 @@
      driver: syslog
    ```
 
-8. ### Docker + ufw
+8. #### Docker + ufw
 
    Docker [modifies](https://docs.docker.com/network/iptables/) iptables to open mapped ports to the world (`eth0 -> br-*`). This will **bypass** ufw, even if explicitly denied from ufw. Additionally, this setup does not cover other containers trying to reach the host (`br-* -> eth0`), or `network_mode=host` containers. For best security and compatibility, apply the following configuration to delegate all control to ufw. Inspired by [this](https://p1ngouin.com/posts/how-to-manage-iptables-rules-with-ufw-and-docker) guide.
 
@@ -123,4 +115,4 @@
 
    Now, you can simply `ufw allow` any port and it will be allowed to enter the host and any Docker container. Otherwise, it will be dropped.
 
-9. ### [Avoid browser fingerprinting](https://github.com/ViRb3/poweruser/blob/master/Windows/Security.md#avoid-browser-fingerprinting)
+9. #### [Avoid browser fingerprinting](https://github.com/ViRb3/poweruser/blob/master/Windows/Security.md#avoid-browser-fingerprinting)
