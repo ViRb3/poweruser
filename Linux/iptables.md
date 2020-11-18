@@ -67,6 +67,16 @@ Routing decision                                                  |
 - `iptables -t raw -A OUTPUT -p icmp -j TRACE`
 - `dmesg | grep TRACE`
 
+#### Matching interfaces
+
+> Interfaces are only resolved in the _Routing decision_ stages from the diagram above.
+> This means that: \
+> -i only works in INPUT, FORWARD and POSTROUTING chains \
+> -o only works in FORWARD, OUTPUT and POSTROUTING chains
+
+- `iptables -A INPUT -i wg-server -j ACCEPT`
+- `iptables -A FORWARD -o wg-server -j ACCEPT`
+
 ### Targets
 
 > Packets traverse a chain until they hit `ACCEPT`, `DROP`, `REJECT`, or `RETURN`. They do not stop on a match unless that match contains a terminating action
