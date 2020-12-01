@@ -122,3 +122,4 @@ Routing decision                                                  |
 - http://www.adminsehow.com/2011/09/iptables-packet-traverse-map/
 - https://backreference.org/2010/06/11/iptables-debugging/
 - https://unix.stackexchange.com/questions/191607/iptables-and-return-target
+- https://www.opsist.com/blog/2015/08/11/how-do-i-see-what-iptables-is-doing.html
