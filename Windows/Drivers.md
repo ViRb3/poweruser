@@ -9,18 +9,15 @@
 
 ## Lenovo Legion 7i
 
-1.  #### Command-line interface for Lenovo Diagnostics constantly running and using CPU
-    - Run in Administrator Powershell:
-      ```powershell
-      [microsoft.win32.registry]::SetValue("HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\LenovoDiagnosticsCLI.exe", "Debugger", "systray.exe")
-      ```
-2.  #### External monitor laggy/choppy/low FPS when first connected via cable
+1.  #### External monitor laggy/choppy/low FPS when first connected via cable
     - Restart `Intel Graphics` driver ([intel-graphics-control](scripts/intel-graphics-control/README.md))
-3.  #### Lenovo Vantage bloatware
-    - Disable it via the [Enterprise Group Policy](Regs/Lenovo%20Vantage/README.md)
-4.  #### Built-in monitor only supports 144/240Hz
+2.  #### Lenovo Vantage bloatware
+    - Uninstall "Lenovo Vantage" and "LenovoVantageService"
+    - Clean up with [CleanupLenovoVantage.ps1](scripts/CleanupLenovoVantage.ps1)
+    - Use [LenovoController](https://github.com/ViRb3/LenovoController)
+3.  #### Built-in monitor only supports 144/240Hz
     - Use [Custom Resolution Utility](https://www.monitortests.com/forum/Thread-Custom-Resolution-Utility-CRU) to add a new `Detailed resolution` with 60Hz
-5.  #### Disable mouse/keyboard waking up computer from sleep
+4.  #### Disable mouse/keyboard waking up computer from sleep
     - In `Device Manager`, for each entry under `Keyboards` and `Mice and other pointing devices`, go to `Power Management` > untick `Allow this device to wake up the computer`
 
 ## MSI GE62 2QD
