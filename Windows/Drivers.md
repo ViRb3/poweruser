@@ -15,9 +15,15 @@
     - Uninstall "Lenovo Vantage" and "LenovoVantageService"
     - Clean up with [CleanupLenovoVantage.ps1](scripts/CleanupLenovoVantage.ps1)
     - Use [LenovoController](https://github.com/ViRb3/LenovoController)
-3.  #### Built-in monitor only supports 144/240Hz
+3.  #### `LenovoUtilityService.exe`
+    - Comes from `Lenovo Fn and function keys` driver
+    - Disable using Powershell:
+      ```powershell
+      [microsoft.win32.registry]::SetValue("HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\LenovoUtilityService.exe", "Debugger", "systray.exe")
+      ```
+4.  #### Built-in monitor only supports 144/240Hz
     - Use [Custom Resolution Utility](https://www.monitortests.com/forum/Thread-Custom-Resolution-Utility-CRU) to add a new `Detailed resolution` with 60Hz
-4.  #### Disable mouse/keyboard waking up computer from sleep
+5.  #### Disable mouse/keyboard waking up computer from sleep
     - In `Device Manager`, for each entry under `Keyboards` and `Mice and other pointing devices`, go to `Power Management` > untick `Allow this device to wake up the computer`
 
 ## MSI GE62 2QD
