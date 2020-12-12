@@ -31,7 +31,8 @@
       $A = New-ScheduledTaskAction -Execute "C:\Program Files\ThrottleStop\ThrottleStop.exe"
       $T = New-ScheduledTaskTrigger -AtLogon
       $P = New-ScheduledTaskPrincipal -GroupId "BUILTIN\Administrators" -RunLevel Highest
-      $S = New-ScheduledTaskSettingsSet -AllowStartIfOnBatteries -ExecutionTimeLimit '00:00:00'
+      $S = New-ScheduledTaskSettingsSet -AllowStartIfOnBatteries `
+           -DontStopIfGoingOnBatteries -ExecutionTimeLimit '00:00:00' -DontStopOnIdleEnd -DisallowHardTerminate
       $D = New-ScheduledTask -Action $A -Principal $P -Trigger $T -Settings $S
       Register-ScheduledTask "ThrottleStop" -InputObject $D
       ```
