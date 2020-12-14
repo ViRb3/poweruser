@@ -6,26 +6,26 @@
    - Disable `Intel (Graphics) Display Power Saving Technology` ([dpst-control](https://github.com/orev/dpst-control))
 2. #### Wi-Fi using 2.4GHz band
    - Set `Preferred Band` to `5GHz` in `Device Manager > Wi-Fi adapter > Properties > Advanced`
+3. #### Context menu delay when right-clicking Executable Files (\*.exe)
+   - Disable `NvAppShExt Class` (NVIDIA Shell Extensions) context menu entry ([ShellExView](https://www.nirsoft.net/utils/shexview.html))
 
 ## Lenovo Legion 7i
 
-1. #### Context menu delay when right-clicking Executable Files (\*.exe)
-   - Disable `NvAppShExt Class` (NVIDIA Shell Extensions) context menu entry ([ShellExView](https://www.nirsoft.net/utils/shexview.html))
-2. #### External monitor laggy/choppy/low FPS when first connected via cable
+1. #### External monitor laggy/choppy/low FPS when first connected via cable
    - Restart `Intel Graphics` driver ([intel-graphics-control](scripts/intel-graphics-control/README.md))
-3. #### Lenovo Vantage bloatware
+2. #### Lenovo Vantage bloatware
    - Uninstall "Lenovo Vantage" and "LenovoVantageService"
    - Clean up with [CleanupLenovoVantage.ps1](scripts/CleanupLenovoVantage.ps1)
    - Use [LenovoController](https://github.com/ViRb3/LenovoController)
-4. #### `LenovoUtilityService.exe`
+3. #### Constantly running process `LenovoUtilityService.exe`
    - Comes from `Lenovo Fn and function keys` driver
    - Disable using Powershell:
      ```powershell
      [microsoft.win32.registry]::SetValue("HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\LenovoUtilityService.exe", "Debugger", "systray.exe")
      ```
-5. #### Built-in monitor only supports 144/240Hz
+4. #### Built-in monitor only supports 144/240Hz
    - Use [Custom Resolution Utility](https://www.monitortests.com/forum/Thread-Custom-Resolution-Utility-CRU) to add a new `Detailed resolution` with 60Hz
-6. #### Disable mouse/keyboard waking up computer from sleep
+5. #### Disable mouse/keyboard waking up computer from sleep
    - In `Device Manager`, for each entry under `Keyboards` and `Mice and other pointing devices`, go to `Power Management` > untick `Allow this device to wake up the computer`
 
 ## MSI GE62 2QD
@@ -37,14 +37,12 @@
 3. #### Microphone not working / very low in direct VoIP clients (TeamSpeak, Discord)
    - Disable sound effects from `Microphone settings > Enchantments > Disable all sound effects`
    - Increase `Microphone Level` to `100`
-4. #### Context menu delay when right-clicking Executable Files (\*.exe)
-   - Disable `NVIDIA Run with graphics processor` context menu entry in `NVIDIA Control Panel`
-5. #### Context menu delay when right-clicking an empty desktop
+4. #### Context menu delay when right-clicking an empty desktop
    - Disable `Intel Integrated Graphics` context menu entry ([ShellExView](https://www.nirsoft.net/utils/shexview.html))
-6. #### DPC Latency (sound popping, stutter, lag)
+5. #### DPC Latency (sound popping, stutter, lag)
    - Disable `NVIDIA Battery Boost` in `NVIDIA GeForce Experience`
    - Disable `CD/DVD device` in `Device Manager`
    - Faulty SATA controller driver, install `Intel RST` if applicable
    - Use `LatencyMon` to diagnose faulty drivers
-7. #### Multi-monitor maximized window blank/empty space on top of screen
+6. #### Multi-monitor maximized window blank/empty space on top of screen
    - `Control Panel` > `Intel HD Graphics` > `Display` > `Scaling` > `Scale Full Screen`. Also enable `Override Application Settings`. _[[source](https://answers.microsoft.com/en-us/windows/forum/all/windows-10-multi-monitor-maximized-window/3c2042ef-73df-401c-9a59-65b347d4dbea)]_
