@@ -78,9 +78,17 @@
 
     ```bash
     git filter-branch --env-filter \
-        'if [ $GIT_COMMIT = c85320d9ddb90c13f4a215f1f0a87b531ab33310 ]
-        then
-            export GIT_AUTHOR_DATE="Fri 15 Mar 2019 12:01 AM"
-            export GIT_COMMITTER_DATE="Fri 16 Mar 2019 12:01 AM"
-        fi'
+    'if [ $GIT_COMMIT = c85320d9ddb90c13f4a215f1f0a87b531ab33310 ]
+    then
+      export GIT_AUTHOR_DATE="Fri 15 Mar 2019 12:01 AM"
+      export GIT_COMMITTER_DATE="Fri 16 Mar 2019 12:01 AM"
+    fi'
+    ```
+
+12. #### Remove GitHub workflow runs not from `master`
+    You can skip the `select(.head_branch != "master")` part to remove all runs
+    ```bash
+    user=GITHUB_NAME repo=REPO_NAME; gh api repos/$user/$repo/actions/runs | \
+    jq -r '.workflow_runs[] | select(.head_branch != "master") | "\(.id)"' | \
+    xargs -n1 -I % gh api repos/$user/$repo/actions/runs/% -X DELETE
     ```
