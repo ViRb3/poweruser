@@ -71,7 +71,7 @@ Routing decision                                                  |
 
 > Interfaces are only resolved in the _Routing decision_ stages from the diagram above.
 > This means that: \
-> -i only works in INPUT, FORWARD and POSTROUTING chains \
+> -i only works in INPUT, FORWARD and PREROUTING chains \
 > -o only works in FORWARD, OUTPUT and POSTROUTING chains
 
 - `iptables -A INPUT -i wg-server -j ACCEPT`
