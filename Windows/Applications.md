@@ -5,13 +5,23 @@
 1. #### High CPU usage by VMWare Workstation
    - Disable `VM Sharing` in program settings
 2. #### USB3 UAS failure in VMWare
+
    1. Shut down the VM
    2. Append to the `.vmx` file of the VM:
       ```
       usb.generic.keepStreamsEnabled = "FALSE"
       ```
    3. Make sure `USB 3.0` compatibility mode is selected in the VM USB settings
+
    - [More information](https://superuser.com/questions/1442507/error-usb3-uas-passthrough-vmware-workstation-15)
+
+3. #### No connection between guest and host via internal IPs
+
+   - In VMWare, go to `Edit` > `Virtual Network Editor...` and click `Restore Defaults`. The subnets will change
+
+     OR
+
+   - From Windows, go to `Network status` > `Change adapter options` and restart all VMWare adapters
 
 ## AdGuard
 
