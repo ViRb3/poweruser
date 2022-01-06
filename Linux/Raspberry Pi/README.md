@@ -37,3 +37,11 @@
      rm cpuburn-a53.S
      # ./cpuburn-a53 ...
      ```
+
+4. #### Reduce wear (Ubuntu)
+
+   ```bash
+   systemctl stop syslog.socket rsyslog.service logrotate.service logrotate.timer
+   systemctl disable syslog.socket rsyslog.service logrotate.service logrotate.timer
+   apt purge snapd cloud-init
+   ```
