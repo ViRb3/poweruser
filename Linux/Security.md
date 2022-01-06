@@ -11,7 +11,9 @@
    ufw enable
    ```
 3. #### Disable password
+
    > :warning: Sudo won't work unless [NOPASSWD](https://askubuntu.com/questions/147241/execute-sudo-without-password) is set
+
    ```sh
    passwd -dl [ACCOUNT]
    ```
