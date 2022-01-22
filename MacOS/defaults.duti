@@ -1,0 +1,727 @@
+# duti settings file
+# based on: https://gist.github.com/apfelchips/0073cb3e8d186115f590d318998c1025
+
+# mkdir -p "${XDG_CONFIG_HOME:-$HOME/.config}/duti/" && curl -L "https://git.io/JRtzH" -o "${XDG_CONFIG_HOME:-$HOME/.config}/duti/default.duti"
+# duti-apply wrapper: alias duti-apply='duti -v "${XDG_CONFIG_HOME:-$HOME/.config}/duti"'
+
+## duti documentation https://web.archive.org/web/20180901095433/http://duti.org/documentation.html
+## see also: https://github.com/Lord-Kamina/SwiftDefaultApps#readme
+
+# List of MIME Types:
+# IANA: https://www.iana.org/assignments/media-types/media-types.xhtml
+# MDN: https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Complete_list_of_MIME_types
+# Unofficial: https://www.sitepoint.com/mime-types-complete-list/
+#
+# Uniform Type Identifier: https://en.wikipedia.org/wiki/Uniform_Type_Identifier#UTI_structure
+# Apple provides many UTIs with Mac OS X, but developers are free to define their own, as long as the UTI is unique to that document type
+
+#
+# file association .plist: ~/Library/Preferences/com.apple.LaunchServices/com.apple.launchservices.secure.plist
+#
+
+# Show UTI of an extension: `duti -e <.ext>` or `mdls -name kMDItemContentType -name kMDItemContentTypeTree -name kMDItemKind <file> `
+
+# available Roles:
+# all:    app handles all roles for the given UTI.
+# viewer: app handles reading and displaying documents
+# editor: app can manipulate and save the item. (implies viewer)
+# shell:  app can execute the item.
+# none    app cannot open the item, but provides an icon for the given UTI.
+
+# Application Bundle Identifier aka. bundle_id aka. app_id
+# get the bundle_id use of an Application: osascript -e 'id of app "Finder.app"'
+
+# Forbidden by macOS (need to be changed with aditional user interaction)
+## com.apple.Safari   http://    editor
+## com.apple.Safari   https://    editor
+## com.microsoft.VSCode     html    editor
+## com.microsoft.VSCode     htm    editor
+
+### Settings Format
+## bundle_id     UTI/ext/url_scheme    role
+## io.mpv        mkv                        viewer
+## io.mpv        public.movie               viewer
+
+# Binary
+com.SweetScape.010Editor obj editor
+com.SweetScape.010Editor bin editor
+com.SweetScape.010Editor aria2 editor
+com.SweetScape.010Editor dat editor
+com.SweetScape.010Editor obj editor
+com.SweetScape.010Editor o editor
+com.SweetScape.010Editor rsrc editor
+com.SweetScape.010Editor pyc editor
+com.SweetScape.010Editor blob editor
+com.SweetScape.010Editor exe editor
+com.SweetScape.010Editor msi editor
+com.SweetScape.010Editor hex editor
+com.SweetScape.010Editor bak editor
+
+net.sourceforge.sqlitebrowser db editor
+net.sourceforge.sqlitebrowser sqlite editor
+## iTunes Library
+net.sourceforge.sqlitebrowser itdb editor
+
+# Fancytext
+com.apple.TextEdit rtf    editor
+com.apple.TextEdit public.rtf    editor
+
+com.microsoft.Word doc    editor
+com.microsoft.Word docx
+com.microsoft.Powerpoint ppt    editor
+com.microsoft.Powerpoint pptx    editor
+com.microsoft.Excel xls    editor
+com.microsoft.Excel xlsx    editor
+
+# Unknown filetypes
+com.SweetScape.010Editor public.data    editor
+# executables
+com.SweetScape.010Editor public.unix-executable    editor
+# Plaintex
+com.microsoft.VSCode txt    editor
+com.microsoft.VSCode public.plain-text    editor
+
+com.microsoft.VSCode text    editor
+com.microsoft.VSCode dic    editor
+com.microsoft.VSCode dict    editor
+com.microsoft.VSCode nfo    editor
+com.microsoft.VSCode diz    editor
+com.microsoft.VSCode inf    editor
+com.microsoft.VSCode info    editor
+com.microsoft.VSCode label    editor
+com.microsoft.VSCode properties    editor
+
+com.microsoft.VSCode tmp    editor
+com.microsoft.VSCode temp    editor
+com.microsoft.VSCode tpl    editor
+com.microsoft.VSCode tmpl    editor
+com.microsoft.VSCode template    editor
+com.microsoft.VSCode manifest    editor
+
+## LOGGING
+com.microsoft.VSCode log    editor
+com.microsoft.VSCode err    editor
+com.microsoft.VSCode crash    editor
+
+# Samba log file
+com.microsoft.VSCode nmbd    editor
+
+com.microsoft.VSCode panic    editor
+com.microsoft.VSCode report    editor
+
+## Config files
+com.microsoft.VSCode cfg    editor
+com.microsoft.VSCode cnf    editor
+com.microsoft.VSCode conf    editor
+com.microsoft.VSCode config    editor
+com.microsoft.VSCode configure    editor
+com.microsoft.VSCode prop    editor
+com.microsoft.VSCode setting    editor
+com.microsoft.VSCode settings    editor
+com.microsoft.VSCode rule    editor
+com.microsoft.VSCode rules    editor
+
+com.microsoft.VSCode vmwarevm    editor
+
+# SystemD
+com.microsoft.VSCode service    editor
+
+com.microsoft.VSCode editorconfig    editor
+com.microsoft.VSCode lock    editor
+com.microsoft.VSCode duti    editor
+com.vladbadea.plisteditor plist    editor
+
+## GIT
+com.microsoft.VSCode git    editor
+com.microsoft.VSCode gitignore    editor
+com.microsoft.VSCode gitmodules    editor
+com.microsoft.VSCode gitconfig    editor
+com.microsoft.VSCode git_message    editor
+com.microsoft.VSCode gitattributes    editor
+
+com.microsoft.VSCode patch    editor
+
+## VIM
+com.microsoft.VSCode vim    editor
+com.microsoft.VSCode neovim    editor
+com.microsoft.VSCode vimrc    editor
+com.microsoft.VSCode viminfo    editor
+
+### Apache
+com.microsoft.VSCode apacheconf    editor
+com.microsoft.VSCode vhost    editor
+
+# Certs, GNUPG, PGP, GPG, Keys and Secrets
+com.microsoft.VSCode pem    editor
+com.microsoft.VSCode pub    editor
+com.microsoft.VSCode key    editor
+com.microsoft.VSCode rsa    editor
+com.microsoft.VSCode dsa    editor
+com.microsoft.VSCode ca    editor
+com.microsoft.VSCode crt    editor
+com.microsoft.VSCode csr    editor
+com.microsoft.VSCode cert    editor
+com.microsoft.VSCode x509    editor
+com.microsoft.VSCode rev    editor
+com.microsoft.VSCode gpg    editor
+com.microsoft.VSCode pgp    editor
+com.microsoft.VSCode sig    editor
+
+# SUBTITLES
+com.microsoft.VSCode srt    editor
+com.microsoft.VSCode vtt    editor
+com.microsoft.VSCode sub    editor
+com.microsoft.VSCode idx    editor
+com.microsoft.VSCode ass    editor
+com.microsoft.VSCode vss    editor
+
+# LICENSES / readme
+# eg.: read.me
+com.microsoft.VSCode me    editor
+com.microsoft.VSCode readme    editor
+
+com.microsoft.VSCode lic    editor
+com.microsoft.VSCode license    editor
+com.microsoft.VSCode gpl    editor
+com.microsoft.VSCode gpl2    editor
+com.microsoft.VSCode gpl3    editor
+com.microsoft.VSCode mit    editor
+com.microsoft.VSCode apache    editor
+com.microsoft.VSCode mozilla    editor
+
+# Markup / Configuration Files
+# XML
+com.microsoft.VSCode xml    editor
+#com.microsoft.VSCode application/xml editor
+#com.microsoft.VSCode text/xml    editor
+#com.microsoft.VSCode application/atom+xml    editor
+#com.microsoft.VSCode application/xhtml+xml    editor
+com.microsoft.VSCode ovf    editor
+com.microsoft.VSCode mobileconfig    editor
+com.microsoft.VSCode reg    editor
+com.microsoft.VSCode strings    editor
+
+# Calibre metadata
+com.microsoft.VSCode opf    editor
+
+com.microsoft.VSCode xul    editor
+#com.microsoft.VSCode application/vnd.mozilla.xul+xml    editor
+
+com.microsoft.VSCode yml    editor
+com.microsoft.VSCode yaml    editor
+com.microsoft.VSCode ini    editor
+com.microsoft.VSCode json    editor
+com.microsoft.VSCode jsonc    editor
+#com.microsoft.VSCode application/json editor
+com.microsoft.VSCode csv    editor
+com.microsoft.VSCode opml    editor
+com.microsoft.VSCode xul    editor
+
+# MARKDOWN / RST
+abnerworks.Typora rst    editor
+abnerworks.Typora md    editor
+abnerworks.Typora mdtxt    editor
+abnerworks.Typora rmd    editor
+abnerworks.Typora mark    editor
+abnerworks.Typora markdown    editor
+abnerworks.Typora multimarkdow    editor
+
+# SHELL
+com.microsoft.VSCode sh    editor
+com.microsoft.VSCode bash    editor
+com.microsoft.VSCode zsh    editor
+com.microsoft.VSCode ksh    editor
+com.microsoft.VSCode csh    editor
+com.microsoft.VSCode fish    editor
+com.microsoft.VSCode script    editor
+
+# HTML and derivates
+com.microsoft.VSCode html5    editor
+com.microsoft.VSCode xhtm    editor
+com.microsoft.VSCode xhtml    editor
+#com.microsoft.VSCode application/xhtml+xml    editor
+com.microsoft.VSCode rhtml    editor
+com.microsoft.VSCode jhtml    editor
+com.microsoft.VSCode phtml    editor
+com.microsoft.VSCode htmls    editor
+com.microsoft.VSCode manhtml    editor
+# Apache FancyIndexing pages
+com.microsoft.VSCode html?C=N;O=A   editor
+com.microsoft.VSCode html?C=N;O=D   editor
+com.microsoft.VSCode html?C=M;O=A   editor
+com.microsoft.VSCode html?C=M;O=D   editor
+com.microsoft.VSCode html?C=D;O=A   editor
+com.microsoft.VSCode html?C=D;O=D   editor
+com.microsoft.VSCode html?C=S;O=A   editor
+com.microsoft.VSCode html?C=S;O=D   editor
+
+# Shell Scripts / Configuration
+com.microsoft.VSCode command    editor
+
+com.microsoft.VSCode cmd    editor
+com.microsoft.VSCode bat    editor
+com.microsoft.VSCode vbs    editor
+com.microsoft.VSCode ps    editor
+com.microsoft.VSCode ps1    editor
+
+com.microsoft.VSCode rc    editor
+com.microsoft.VSCode inputrc    editor
+com.microsoft.VSCode bashrc    editor
+com.microsoft.VSCode bash_history    editor
+com.microsoft.VSCode shrc    editor
+com.microsoft.VSCode shinit    editor
+com.microsoft.VSCode profile    editor
+com.microsoft.VSCode zshrc    editor
+com.microsoft.VSCode zlogin    editor
+com.microsoft.VSCode zlogout    editor
+com.microsoft.VSCode zprofile    editor
+com.microsoft.VSCode zpreztorc    editor
+com.microsoft.VSCode zshenv    editor
+com.microsoft.VSCode zhistory    editor
+com.microsoft.VSCode env    editor
+com.microsoft.VSCode environment    editor
+com.microsoft.VSCode example    editor
+
+# Sublime Text Files
+com.microsoft.VSCode sublime-project    editor
+com.microsoft.VSCode sublime-workspace    editor
+com.microsoft.VSCode sublime-snippet    editor
+com.microsoft.VSCode sublime-build    editor
+com.microsoft.VSCode sublime-commands    editor
+com.microsoft.VSCode sublime-keymap    editor
+com.microsoft.VSCode sublime-mousemap    editor
+com.microsoft.VSCode sublime-macro    editor
+com.microsoft.VSCode sublime-syntax    editor
+com.microsoft.VSCode sublime-settings    editor
+com.microsoft.VSCode tmPreferences    editor
+com.microsoft.VSCode merged-ca-bundle    editor
+com.microsoft.VSCode user-ca-bundle    editor
+
+# Project Files
+com.microsoft.VSCode pro    editor
+
+# Programming Languages
+## https://github.com/adobe/brackets/blob/master/src/language/languages.json
+## https://gist.github.com/aymen-mouelhi/82c93fbcd25f091f2c13faa5e0d61760
+
+## JAVA / Android
+com.microsoft.VSCode java    editor
+com.microsoft.VSCode class    editor
+com.microsoft.VSCode vm    editor
+com.microsoft.VSCode mf    editor
+
+com.apple.JarLauncher jar    editor
+
+## JAVASCRIPT, etc...
+com.microsoft.VSCode js    editor
+com.microsoft.VSCode javascript    editor
+com.microsoft.VSCode jsx    editor
+
+com.microsoft.VSCode ts    editor
+com.microsoft.VSCode typescript    editor
+com.microsoft.VSCode tsx    editor
+
+com.microsoft.VSCode vue    editor
+
+com.microsoft.VSCode coffee    editor
+com.microsoft.VSCode _coffee    editor
+com.microsoft.VSCode cake    editor
+com.microsoft.VSCode cjsx    editor
+com.microsoft.VSCode iced    editor
+com.microsoft.VSCode eslint    editor
+com.microsoft.VSCode eslintrc    editor
+com.microsoft.VSCode eslintjs    editor
+com.microsoft.VSCode eslintjson    editor
+com.microsoft.VSCode es    editor
+
+## CSS
+com.microsoft.VSCode css    editor
+com.microsoft.VSCode scss    editor
+com.microsoft.VSCode less    editor
+com.microsoft.VSCode map    editor
+
+## ASP/.NET
+com.microsoft.VSCode asp    editor
+com.microsoft.VSCode aspx    editor
+com.microsoft.VSCode axd    editor
+com.microsoft.VSCode asmx    editor
+com.microsoft.VSCode ashx    editor
+
+## RUBY
+com.microsoft.VSCode rb    editor
+com.microsoft.VSCode ruby    editor
+com.microsoft.VSCode cr    editor
+
+## Python
+com.microsoft.VSCode py    editor
+com.microsoft.VSCode pip    editor
+
+## Haskell
+com.microsoft.VSCode hs    editor
+
+## Erlang / Elixir
+com.microsoft.VSCode erl    editor
+com.microsoft.VSCode exs    editor
+
+## Perl
+com.microsoft.VSCode pl    editor
+com.microsoft.VSCode perl    editor
+
+## PHP
+com.microsoft.VSCode php    editor
+com.microsoft.VSCode php3    editor
+com.microsoft.VSCode php4    editor
+com.microsoft.VSCode php5    editor
+com.microsoft.VSCode php7    editor
+com.microsoft.VSCode twig    editor
+
+## LaTeX
+com.microsoft.VSCode fd    editor
+com.microsoft.VSCode bst    editor
+com.microsoft.VSCode blg    editor
+com.microsoft.VSCode brf    editor
+com.microsoft.VSCode cls    editor
+com.microsoft.VSCode tex    editor
+com.microsoft.VSCode aux    editor
+com.microsoft.VSCode lof    editor
+com.microsoft.VSCode lot    editor
+com.microsoft.VSCode sty    editor
+
+com.microsoft.VSCode latexmkrc    editor
+com.microsoft.VSCode bib    editor
+
+## Clang, etc.
+com.microsoft.VSCode c    editor
+com.microsoft.VSCode h    editor
+com.microsoft.VSCode w    editor
+
+com.microsoft.VSCode cc    editor
+com.microsoft.VSCode cp    editor
+com.microsoft.VSCode c++    editor
+com.microsoft.VSCode cpp    editor
+com.microsoft.VSCode cxx    editor
+
+com.microsoft.VSCode h++    editor
+com.microsoft.VSCode hh    editor
+com.microsoft.VSCode hpp    editor
+com.microsoft.VSCode hxx    editor
+com.microsoft.VSCode inc    editor
+com.microsoft.VSCode inl    editor
+com.microsoft.VSCode icc    editor
+com.microsoft.VSCode ipp    editor
+com.microsoft.VSCode tpp    editor
+
+# Arduino
+com.microsoft.VSCode ino    editor
+
+# c#
+com.microsoft.VSCode cs    editor
+com.microsoft.VSCode cake    editor
+com.microsoft.VSCode csx    editor
+
+com.microsoft.VSCode csproj    editor
+com.microsoft.VSCode targets    editor
+
+com.microsoft.VSCode chs    editor
+
+# swift
+com.microsoft.VSCode swift    editor
+
+## Assembly
+com.microsoft.VSCode a    editor
+com.microsoft.VSCode r    editor
+com.microsoft.VSCode asm    editor
+com.microsoft.VSCode gas    editor
+com.microsoft.VSCode gasm    editor
+com.microsoft.VSCode nasm    editor
+com.microsoft.VSCode a51    editor
+com.microsoft.VSCode inc    editor
+
+### Instruction sets
+com.microsoft.VSCode arm    editor
+com.microsoft.VSCode arm32    editor
+com.microsoft.VSCode arm32v7    editor
+com.microsoft.VSCode arm32v8    editor
+com.microsoft.VSCode arm64     editor
+com.microsoft.VSCode arm64v7    editor
+com.microsoft.VSCode arm64v8    editor
+
+com.microsoft.VSCode x86     editor
+com.microsoft.VSCode x86-64     editor
+com.microsoft.VSCode AMD64     editor
+com.microsoft.VSCode mips     editor
+
+# Makefiles
+com.microsoft.VSCode m4    editor
+com.microsoft.VSCode am    editor
+
+com.microsoft.VSCode ac    editor
+com.microsoft.VSCode sub    editor
+
+com.microsoft.VSCode make    editor
+com.microsoft.VSCode cmake    editor
+com.microsoft.VSCode in    editor
+
+com.microsoft.VSCode bsd    editor
+com.microsoft.VSCode macos    editor
+com.microsoft.VSCode linux    editor
+
+
+## GOlang
+com.microsoft.VSCode go    editor
+com.microsoft.VSCode golang    editor
+com.microsoft.VSCode mod    editor
+com.microsoft.VSCode sum    editor
+
+#RUST
+com.microsoft.VSCode rst    editor
+com.microsoft.VSCode rust   editor
+com.microsoft.VSCode s    editor
+
+## Pascal
+com.microsoft.VSCode pas    editor
+
+# MISC / other languages
+com.microsoft.VSCode lua    editor
+
+com.microsoft.VSCode ahk    editor
+com.microsoft.VSCode ahkl    editor
+
+com.microsoft.VSCode au3    editor
+com.microsoft.VSCode awk    editor
+com.microsoft.VSCode auk    editor
+com.microsoft.VSCode gwak    editor
+com.microsoft.VSCode mawk    editor
+com.microsoft.VSCode nawk    editor
+
+com.microsoft.VSCode jq    editor
+
+com.microsoft.VSCode bb     editor
+
+com.microsoft.VSCode b    editor
+com.microsoft.VSCode bf    editor
+
+com.microsoft.VSCode ceylon    editor
+com.microsoft.VSCode ch    editor
+com.microsoft.VSCode ck    editor
+com.microsoft.VSCode cirru    editor
+com.microsoft.VSCode clw    editor
+
+com.microsoft.VSCode sql    editor
+
+# Docker
+com.microsoft.VSCode docker-compose editor
+
+# Terraform
+com.microsoft.VSCode tf editor
+com.microsoft.VSCode tfvar editor
+
+# Encodings
+com.microsoft.VSCode ascii    editor
+com.microsoft.VSCode ansi    editor
+com.microsoft.VSCode asc    editor
+com.microsoft.VSCode axt    editor
+com.microsoft.VSCode utf8    editor
+com.microsoft.VSCode utx    editor
+com.microsoft.VSCode tx8    editor
+
+com.microsoft.VSCode att    editor
+com.microsoft.VSCode xmp    editor
+
+com.microsoft.VSCode tt    editor
+com.microsoft.VSCode ver    editor
+
+com.microsoft.VSCode textile    editor
+com.microsoft.VSCode spec    editor
+com.microsoft.VSCode rml    editor
+
+# LOCALISATIONS
+com.microsoft.VSCode us    editor
+com.microsoft.VSCode es    editor
+com.microsoft.VSCode ger    editor
+com.microsoft.VSCode de    editor
+com.microsoft.VSCode fr    editor
+com.microsoft.VSCode it    editor
+com.microsoft.VSCode sk    editor
+com.microsoft.VSCode cs    editor
+com.microsoft.VSCode bg    editor
+
+# HASHES
+com.microsoft.VSCode hash    editor
+com.microsoft.VSCode crc    editor
+
+com.microsoft.VSCode md4    editor
+com.microsoft.VSCode md5    editor
+com.microsoft.VSCode sha    editor
+com.microsoft.VSCode sha1    editor
+com.microsoft.VSCode sha2    editor
+com.microsoft.VSCode sha265    editor
+com.microsoft.VSCode sha384    editor
+com.microsoft.VSCode sha512    editor
+
+com.microsoft.VSCode md4sum    editor
+com.microsoft.VSCode md5sum    editor
+com.microsoft.VSCode shasum    editor
+com.microsoft.VSCode sha1sum    editor
+com.microsoft.VSCode sha2sum    editor
+com.microsoft.VSCode sha265sum    editor
+com.microsoft.VSCode sha384sum    editor
+com.microsoft.VSCode sha512sum    editor
+
+com.microsoft.VSCode md4sums    editor
+com.microsoft.VSCode md5sums    editor
+com.microsoft.VSCode shasums    editor
+com.microsoft.VSCode sha1sums    editor
+com.microsoft.VSCode sha2sums    editor
+com.microsoft.VSCode sha265sums    editor
+com.microsoft.VSCode sha384sums    editor
+com.microsoft.VSCode sha512sums    editor
+
+# AppleScript
+com.apple.ScriptEditor2 applescript    editor
+com.apple.ScriptEditor2 scpt    editor
+
+# Linkfiles
+com.apple.Safari url    editor
+
+# Archives / Parts
+# cx.c3.thearchivebrowser
+# .zip default is probably protected by macOS?
+com.aone.keka zip   editor
+
+com.aone.keka 7z    editor
+
+com.aone.keka rar    editor
+com.aone.keka com.rarlab.rar-archive    editor
+
+com.aone.keka xz    editor
+com.aone.keka tar    editor
+com.aone.keka gz    editor
+com.aone.keka bz   editor
+com.aone.keka bz2    editor
+
+# Stuffit Expander
+com.aone.keka sit    editor
+com.aone.keka hqx    editor
+
+# ova Open Virtual Appliance VM containers
+com.aone.keka ova    editor
+
+com.aone.keka part0    editor
+com.aone.keka part1    editor
+com.aone.keka part2    editor
+com.aone.keka part3    editor
+com.aone.keka part4    editor
+com.aone.keka part5    editor
+com.aone.keka part6    editor
+com.aone.keka part7    editor
+com.aone.keka part8    editor
+com.aone.keka part9    editor
+
+com.aone.keka part00    editor
+com.aone.keka part01    editor
+com.aone.keka part02    editor
+com.aone.keka part03    editor
+com.aone.keka part04    editor
+com.aone.keka part05    editor
+com.aone.keka part06    editor
+com.aone.keka part07    editor
+com.aone.keka part08    editor
+com.aone.keka part09    editor
+com.aone.keka part10    editor
+
+com.aone.keka part000    editor
+com.aone.keka part001    editor
+com.aone.keka part002    editor
+com.aone.keka part003    editor
+com.aone.keka part004    editor
+com.aone.keka part005    editor
+com.aone.keka part006    editor
+com.aone.keka part007    editor
+com.aone.keka part008    editor
+com.aone.keka part009    editor
+com.aone.keka part010    editor
+
+# MEDIA
+## Video
+com.colliderli.iina public.movie    editor
+
+com.colliderli.iina mov    editor
+com.colliderli.iina mkv    editor
+com.colliderli.iina mpeg    editor
+com.colliderli.iina mp4    editor
+com.colliderli.iina m4v    editor
+com.colliderli.iina avi    editor
+com.colliderli.iina divx    editor
+com.colliderli.iina wmv    editor
+com.colliderli.iina 3gp    editor
+com.colliderli.iina 3g2    editor
+
+com.colliderli.iina h264    editor
+com.colliderli.iina h265    editor
+com.colliderli.iina av1    editor
+com.colliderli.iina vp8    editor
+com.colliderli.iina vp9    editor
+
+com.colliderli.iina webm    editor
+
+com.colliderli.iina flv    editor
+
+## Audio
+com.colliderli.iina mp3    editor
+com.colliderli.iina m4a    editor
+com.colliderli.iina m4b    editor
+com.colliderli.iina m4r    editor
+com.colliderli.iina aac    editor
+com.colliderli.iina caf    editor
+
+com.colliderli.iina wav    editor
+com.colliderli.iina flac    editor
+com.colliderli.iina alac    editor
+com.colliderli.iina aiff    editor
+
+com.colliderli.iina opus    editor
+com.colliderli.iina ogg    editor
+com.colliderli.iina oga    editor
+
+com.colliderli.iina mid    editor
+com.colliderli.iina midi    editor
+
+com.colliderli.iina weba    editor
+
+## Vectors
+com.adobe.illustrator svg    editor
+com.adobe.illustrator ai    editor
+
+## Pictures
+com.apple.Preview bmp    editor
+com.apple.Preview gif    editor
+com.apple.Preview ico    editor
+com.apple.Preview png    editor
+
+com.apple.Preview jpg    editor
+com.apple.Preview jpeg    editor
+com.apple.Preview jpg2000    editor
+com.apple.Preview jpeg2000    editor
+
+com.apple.Preview icns    editor
+
+com.apple.Preview tif    editor
+com.apple.Preview tiff   editor
+
+com.apple.Preview webp    editor
+
+com.adobe.Photoshop psd    editor
+com.adobe.Photoshop dng    editor
+com.adobe.Photoshop raw    editor
+
+# RSS / Playlists
+com.microsoft.VSCode atom    editor
+com.microsoft.VSCode m3u    editor
+com.microsoft.VSCode m3u8    editor
+com.microsoft.VSCode pls    editor
+com.microsoft.VSCode playlist    editor
+com.microsoft.VSCode cue    editor
+
+# PDF / Books
+com.readdle.PDFExpert-Mac pdf    editor

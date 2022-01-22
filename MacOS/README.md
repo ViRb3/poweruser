@@ -9,3 +9,11 @@
      ```
      defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool TRUE
      ```
+
+2. #### Set default file associations
+
+   - Install [duti](https://github.com/moretension/duti) from Homebrew, download [defaults.duti](defaults.duti), then load them:
+
+     ```
+       duti defaults.duti
+     ```
