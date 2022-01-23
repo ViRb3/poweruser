@@ -600,6 +600,8 @@ com.aone.keka gz    editor
 com.aone.keka bz   editor
 com.aone.keka bz2    editor
 
+com.aone.keka deb    editor
+
 # Stuffit Expander
 com.aone.keka sit    editor
 com.aone.keka hqx    editor
