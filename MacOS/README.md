@@ -6,7 +6,7 @@
 
    - Run the following and reboot your computer:
 
-     ```
+     ```bash
      defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool TRUE
      ```
 
@@ -14,6 +14,13 @@
 
    - Install [duti](https://github.com/moretension/duti) from Homebrew, download [defaults.duti](defaults.duti), then load them:
 
+     ```bash
+     duti defaults.duti
      ```
-       duti defaults.duti
+
+   - Remove Xcode associations, which may take priority:
+
+     ```bash
+     lsregister=/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Versions/Current/Support/lsregister
+     lsregister -u /Applications/Xcode.app
      ```
