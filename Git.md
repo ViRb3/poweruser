@@ -90,5 +90,5 @@
     ```bash
     user=GITHUB_NAME repo=REPO_NAME; gh api repos/$user/$repo/actions/runs | \
     jq -r '.workflow_runs[] | select(.head_branch != "master") | "\(.id)"' | \
-    xargs -n1 -I % gh api repos/$user/$repo/actions/runs/% -X DELETE
+    xargs -n1 -I % gh api repos/$user/$repo/actions/runs/% -X DELETE --silent
     ```
