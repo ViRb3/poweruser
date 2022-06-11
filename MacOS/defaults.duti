@@ -210,6 +210,7 @@ com.microsoft.VSCode xul    editor
 com.microsoft.VSCode yml    editor
 com.microsoft.VSCode yaml    editor
 com.microsoft.VSCode ini    editor
+com.microsoft.VSCode toml    editor
 com.microsoft.VSCode json    editor
 com.microsoft.VSCode jsonc    editor
 #com.microsoft.VSCode application/json editor
