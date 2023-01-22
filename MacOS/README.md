@@ -24,3 +24,27 @@
      ```bash
      duti defaults.duti
      ```
+
+3. #### Force external monitors in RGB mode
+
+     ##### Intel CPU (x86_64)
+
+     - Run the following and re-plug your monitor:
+
+       ```bash
+       wget https://gist.github.com/joevt/32e5efffe3459958759fb702579b9529/raw/af57cd459d9c5ddc09c22a247eb19c8aa4ae11a1/EDIDUtil.sh
+       . ./EDIDUtil.sh
+       loadioreg
+       listedids
+       removechromasubsampling
+       makeoverride
+       installoverride
+       ```
+
+     ##### Apple CPU (arm64)
+
+     - Download [rgb-patch.py](rgb-patch.py), run the following, and reboot your computer:
+
+       ```bash
+       sudo ./rgb-patch.py
+       ```
