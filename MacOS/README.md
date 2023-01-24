@@ -48,3 +48,14 @@
        ```bash
        sudo ./rgb-patch.py
        ```
+
+4. #### Create secure Wi-Fi hotspot
+
+    - ```bash
+       sudo networksetup -createnetworkservice Loopback lo0
+       sudo networksetup -setmanual Loopback 127.0.0.1 255.0.0.0
+       sudo networksetup -createnetworkservice AdHoc lo0
+       sudo networksetup -setmanual AdHoc 192.168.1.88 255.255.255.255
+       ```
+       
+    - **System Preferences** > **General** > **Sharing** > **Internet Sharing**, choose **AdHoc**, tick **Wi-Fi**, click **Wi-Fi Options** and set name/password, enable **Internet Sharing**
