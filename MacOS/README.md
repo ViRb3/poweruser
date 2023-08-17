@@ -59,3 +59,41 @@
        ```
        
     - **System Preferences** > **General** > **Sharing** > **Internet Sharing**, choose **AdHoc**, tick **Wi-Fi**, click **Wi-Fi Options** and set name/password, enable **Internet Sharing**
+
+4. #### Spoof WiFi MAC address
+
+    - `/usr/local/sbin/spoof.sh`
+      ```bash
+      #!/bin/bash
+      
+      mac_address="f0:2f:4b:12:34:56"
+      
+      wifi_status=$(networksetup -getairportpower en0)
+      networksetup -setairportpower en0 on
+      sudo /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport --disassociate
+      sudo ifconfig en0 ether "$mac_address"
+      networksetup -setairportpower en0 off
+      
+      if echo "$wifi_status" | grep -q "On"; then
+          networksetup -setairportpower en0 on
+      fi
+      ```
+
+    - `/Library/LaunchDaemons/local.spoof.plist`
+      ```xml
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"\>
+      <plist version="1.0">
+        <dict>
+          <key>Label</key>
+          <string>local.spoof</string>
+          <key>ProgramArguments</key>
+          <array>
+              <string>/usr/local/sbin/spoof.sh</string>
+          </array>
+          <key>RunAtLoad</key>
+          <true/>
+        </dict>
+      </plist>
+      
+      ```
