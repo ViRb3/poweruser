@@ -104,6 +104,14 @@ Routing decision                                                  |
 
 - `--to-ports port[-port]`
 
+#### **REDIRECT**
+
+> This target is only valid within the `PREROUTING` and `OUTPUT` chains of the nat table. It is used to redirect packets and streams to the machine itself. This means that we could for example REDIRECT all packets destined for the HTTP ports to an HTTP proxy like squid, on our own host. Locally generated packets are mapped to the 127.0.0.1 address. In other words, this rewrites the destination address to our own host for packets that are forwarded, or something alike. The REDIRECT target is extremely good to use when we want, for example, transparent proxying, where the *LAN* hosts do not know about the proxy at all.
+>
+> The **REDIRECT** target takes only one option, as described below:
+
+- `--to-ports port[-port]`
+
 ### Logging
 
 - `iptables -A INPUT -p tcp -j LOG --log-level 1 --log-prefix "[prefix] "`
