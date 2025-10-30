@@ -1,5 +1,12 @@
 # MacOS
 
+## Scripts
+
+- [fix_modtime](fix_modtime)
+- [format_ini](format_ini)
+- [format_json](format_json)
+- [format_xml](format_xml)
+
 ## General
 
 1. #### Disable resource forks (.\_\* and .DS_Store) on network drives

@@ -1,0 +1,40 @@
+#!/usr/bin/env python3
+from pathlib import Path
+from typing import List
+import json
+import argparse
+
+
+def sort(unsorted_file, sorted_file, attr=None):
+    """Sort unsorted json file and save to sorted_file"""
+    try:
+        with open(unsorted_file) as f:
+            tree = json.load(f)
+    except Exception as e:
+        print("Error parsing: " + str(e))
+        return
+    with open(sorted_file, "w", encoding="utf-8") as output_fp:
+        json.dump(tree, output_fp, sort_keys=True, indent="  ")
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(
+        description="Sort JSON elements alphabetically for better diffing.",
+        formatter_class=argparse.ArgumentDefaultsHelpFormatter,
+    )
+    parser.add_argument(
+        "inputs",
+        metavar="INPUT",
+        nargs="+",
+        type=str,
+        help="JSON files to process.",
+    )
+
+    args = parser.parse_args()
+    inputs: List[Path] = [Path(a).resolve() for a in args.inputs]
+
+    for input in inputs:
+        print(f"Processing {input}")
+        sort(input, input)
+
+    print(f"Done")

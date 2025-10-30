@@ -1,0 +1,55 @@
+#!/usr/bin/env python3
+from pathlib import Path
+from typing import List
+import argparse
+from configparser import ConfigParser
+
+
+def sort_file(parser, file_name):
+    # TODO: When Python 3.13 is released, add "allow_unnamed_section=True"
+    sorted_parser = ConfigParser()
+    sorted_parser.optionxform = str
+    sections = sorted(parser._sections)
+    for s in sections:
+        sorted_parser.add_section(s)
+        items = sorted(parser._sections[s].items())
+        for i in items:
+            sorted_parser.set(s, i[0], i[1])
+
+    write_sorted_configuration_to_file(file_name, sorted_parser)
+
+
+def write_sorted_configuration_to_file(file_name, sorted_parser):
+    with open(file_name, "w") as configfile:
+        sorted_parser.write(configfile)
+
+
+def read_file(file_path):
+    parser = ConfigParser()
+    parser.optionxform = str
+    parser.read(file_path)
+    return parser
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(
+        description="Sort INI elements alphabetically for better diffing.",
+        formatter_class=argparse.ArgumentDefaultsHelpFormatter,
+    )
+    parser.add_argument(
+        "inputs",
+        metavar="INPUT",
+        nargs="+",
+        type=str,
+        help="INI files to process.",
+    )
+
+    args = parser.parse_args()
+    inputs: List[Path] = [Path(a).resolve() for a in args.inputs]
+
+    for input in inputs:
+        print(f"Processing {input}")
+        parser_config = read_file(input)
+        sort_file(parser_config, input)
+
+    print(f"Done")

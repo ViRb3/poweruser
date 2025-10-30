@@ -1,0 +1,153 @@
+#!/bin/bash
+
+# Script to update folder modification times to match their newest content
+# Excludes .DS_Store files from consideration
+
+# Default flags
+ONLY_IF_DS_STORE=false
+DELETE_DS_STORE=false
+
+# Function to display usage
+usage() {
+    echo "Usage: $0 [OPTIONS] <directory> [directory2 ...]"
+    echo ""
+    echo "Updates folder modification times to match their newest content (excluding .DS_Store)"
+    echo ""
+    echo "Options:"
+    echo "  -d, --only-if-ds-store    Only update folders that contain a .DS_Store file"
+    echo "  -r, --remove-ds-store     Delete .DS_Store files before updating folder times"
+    echo "  -h, --help                Display this help message"
+    echo ""
+    echo "Examples:"
+    echo "  $0 /path/to/folder"
+    echo "  $0 -d /path/to/folder                    # Only update if .DS_Store exists"
+    echo "  $0 -r /path/to/folder                    # Delete .DS_Store files"
+    echo "  $0 -d -r /path/to/folder                 # Both options"
+    exit 1
+}
+
+update_folder_time() {
+    local folder="$1"
+    
+    # Check if .DS_Store exists in this folder
+    local has_ds_store=false
+    if [ -f "$folder/.DS_Store" ]; then
+        has_ds_store=true
+    fi
+    
+    # If ONLY_IF_DS_STORE is true and there's no .DS_Store, skip this folder
+    if [ "$ONLY_IF_DS_STORE" = true ] && [ "$has_ds_store" = false ]; then
+        return
+    fi
+    
+    # Save the original folder modification time before any changes
+    local original_folder_time=$(stat -f "%Sm" -t "%Y%m%d%H%M.%S" "$folder" 2>/dev/null)
+    
+    # Delete .DS_Store FIRST if requested (before updating modtime)
+    if [ "$DELETE_DS_STORE" = true ] && [ "$has_ds_store" = true ]; then
+        rm "$folder/.DS_Store"
+        echo "Deleted: $folder/.DS_Store"
+    fi
+    
+    # Find the newest file/folder in this directory (excluding .DS_Store)
+    # Use -maxdepth 1 to only look at direct children
+    local newest=$(find "$folder" -maxdepth 1 ! -name ".DS_Store" ! -path "$folder" -print0 | \
+                   xargs -0 stat -f "%m %N" 2>/dev/null | \
+                   sort -rn | \
+                   head -1 | \
+                   cut -d' ' -f2-)
+    
+    if [ -n "$newest" ]; then
+        # Get the modification time of the newest item
+        local newest_time=$(stat -f "%Sm" -t "%Y%m%d%H%M.%S" "$newest" 2>/dev/null)
+        
+        if [ -n "$newest_time" ]; then
+            # Update the folder's modification time
+            touch -m -t "$newest_time" "$folder"
+            if [ "$has_ds_store" = true ]; then
+                echo "Updated: $folder (had .DS_Store, based on: $(basename "$newest"))"
+            else
+                echo "Updated: $folder (based on: $(basename "$newest"))"
+            fi
+        fi
+    else
+        # Empty folder, restore modtime if we deleted .DS_Store
+        if [ "$DELETE_DS_STORE" = true ] && [ "$has_ds_store" = true ]; then
+            # Restore the original folder modification time
+            if [ -n "$original_folder_time" ]; then
+                touch -m -t "$original_folder_time" "$folder"
+                echo "Restored original modtime: $folder (empty after .DS_Store removal)"
+            else
+                echo "Skipped: $folder (empty after .DS_Store removal, could not restore modtime)"
+            fi
+        fi
+    fi
+}
+
+# Parse command line arguments
+DIRECTORIES=()
+while [[ $# -gt 0 ]]; do
+    case $1 in
+        -d|--only-if-ds-store)
+            ONLY_IF_DS_STORE=true
+            shift
+            ;;
+        -r|--remove-ds-store)
+            DELETE_DS_STORE=true
+            shift
+            ;;
+        -h|--help)
+            usage
+            ;;
+        -*)
+            echo "Error: Unknown option: $1"
+            echo ""
+            usage
+            ;;
+        *)
+            DIRECTORIES+=("$1")
+            shift
+            ;;
+    esac
+done
+
+# Check if at least one directory was provided
+if [ ${#DIRECTORIES[@]} -eq 0 ]; then
+    echo "Error: No directory specified"
+    echo ""
+    usage
+fi
+
+# Display active options
+echo "Options:"
+echo "  Only update if .DS_Store exists: $ONLY_IF_DS_STORE"
+echo "  Delete .DS_Store files: $DELETE_DS_STORE"
+echo ""
+
+# Main script
+for target in "${DIRECTORIES[@]}"; do
+    if [ ! -d "$target" ]; then
+        echo "Error: '$target' is not a directory"
+        continue
+    fi
+    
+    echo "Processing: $target"
+    echo ""
+    
+    # Process the target directory and all subdirectories
+    # Process deepest directories first (bottom-up)
+    find "$target" -type d -print0 | \
+        while IFS= read -r -d '' dir; do
+            echo "$dir"
+        done | \
+        awk '{ print length, $0 }' | \
+        sort -rn | \
+        cut -d' ' -f2- | \
+        while IFS= read -r dir; do
+            update_folder_time "$dir"
+        done
+    
+    echo ""
+done
+
+echo "Done!"
